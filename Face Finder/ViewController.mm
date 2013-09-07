@@ -8,6 +8,7 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 
+#import "AppDelegate.h"
 #import "ViewController.h"
 #import "OpenCVData.h"
 #import "UIImage+OpenCV.h"
@@ -22,10 +23,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(sessionStateChanged:)
+     name:FBSessionStateChangedNotification
+     object:nil];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     faceDetector = [[FaceDetector alloc] init];
     
     faceRecognizer = [[CustomFaceRecognizer alloc] initWithEigenFaceRecognizer];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate openSessionWithAllowLoginUI:YES];
     /*[faceRecognizer newPersonWithName:@"Ben"];
     [faceRecognizer newPersonWithName:@"Mike"];
     [faceRecognizer newPersonWithName:@"Or"];*/
@@ -69,62 +80,19 @@
     //    NSLog(@"Train successful!");
     // }*/
     
-    ImageGrabber *grabber = [[ImageGrabber alloc] init];
-    [grabber setDelegate:self];
-    [grabber grabAllImages];
-    
 }
 
-- (void)sessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
-{
-    switch (state) {
-        case FBSessionStateOpen: {
-            UIViewController *topViewController =
-            [self.navController topViewController];
-            if ([[topViewController modalViewController]
-                 isKindOfClass:[SCLoginViewController class]]) {
-                [topViewController dismissModalViewControllerAnimated:YES];
-            }
-        }
-            break;
-        case FBSessionStateClosed:
-        case FBSessionStateClosedLoginFailed:
-            // Once the user has logged in, we want them to
-            // be looking at the root view.
-            [self.navController popToRootViewControllerAnimated:NO];
-            
-            [FBSession.activeSession closeAndClearTokenInformation];
-            
-            [self showLoginView];
-            break;
-        default:
-            break;
-    }
-    
-    if (error) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
+- (void)sessionStateChanged:(NSNotification*)notification {
+    if (FBSession.activeSession.isOpen) {
+        NSLog(@"WORKED!!");
+                   ImageGrabber *grabber = [[ImageGrabber alloc] init];
+         [grabber setDelegate:self];
+         [grabber grabAllImages];
+    } else {
+       
     }
 }
 
-
-- (void)openSession
-{
-    [FBSession openActiveSessionWithReadPermissions:nil
-                                       allowLoginUI:YES
-                                  completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
-     }];
-}
 
 -(void)addFile:(NSString*)fileName forPerson:(NSInteger)x{
     UIImage *im = [UIImage imageNamed:fileName];

@@ -8,8 +8,82 @@
 
 #import "AppDelegate.h"
 
-@implementation AppDelegate
 
+NSString *const FBSessionStateChangedNotification =
+@"com.facebook.samples.LoginHowTo:FBSessionStateChangedNotification";
+
+
+@implementation AppDelegate
+@synthesize viewController = _viewController;
+@synthesize loggedInUserID = _loggedInUserID;
+@synthesize loggedInSession = _loggedInSession;
+/*
+ * Callback for session changes.
+ */
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen:
+            if (!error) {
+                // We have a valid session
+                //NSLog(@"User session found");
+                [FBRequestConnection
+                 startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+                                                   NSDictionary<FBGraphUser> *user,
+                                                   NSError *error) {
+                     if (!error) {
+                         self.loggedInUserID = user.id;
+                         self.loggedInSession = FBSession.activeSession;
+                     }
+                 }];
+            }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+            [FBSession.activeSession closeAndClearTokenInformation];
+            break;
+        default:
+            break;
+    }
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:FBSessionStateChangedNotification
+     object:session];
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+/*
+ * Opens a Facebook session and optionally shows the login UX.
+ */
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+    return [FBSession openActiveSessionWithReadPermissions:nil
+                                              allowLoginUI:allowLoginUI
+                                         completionHandler:^(FBSession *session,
+                                                             FBSessionState state,
+                                                             NSError *error) {
+                                             [self sessionStateChanged:session
+                                                                 state:state
+                                                                 error:error];
+                                         }];
+}
+
+/*
+ *
+ */
+- (void) closeSession {
+    [FBSession.activeSession closeAndClearTokenInformation];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -35,6 +109,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [FBAppCall handleDidBecomeActive];
+
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

@@ -8,12 +8,18 @@
 
 #import "ImageGrabber.h"
 #import <AFNetworking/AFNetworking.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation ImageGrabber
 
 @synthesize delegate;
 -(void)grabAllImages{
-    [self grabImagesAtPath:@"https://graph.facebook.com/552452699/photos?access_token=CAACEdEose0cBALrNC1O0M2UMcnMoyOtN8gjuM72MIfuJliQcwL0ZCCGcd5ESY6mDc8yIeqLzT1HhKX3jxTY673lN2lvvTobUh7Jn266gHoTwR04J5xAMY910B0WplcE3tynoheONXzen4PB94EL60JSVYZAXBO7Ty5EPNJoJpQYtXMmEIj8uhNnzP1vfVZAYZA9ZBW3GLMQZDZD"];
+   // FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
+  //  [requestConnection addRequest:[FBRequest requestForGraphPath:@"me/photos"] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+       // NSLog(@"Stuff:%@",result);
+    ///}];
+  //  [requestConnection start];
+    //[self grabImagesAtPath:@"https://graph.facebook.com/me/photos?"];
 }
 
 -(void)grabImagesAtPath:(NSString*)path{
