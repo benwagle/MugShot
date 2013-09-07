@@ -18,16 +18,17 @@
 {
     self = [super init];
     if (self) {
-        parser = [[ImageParser alloc] init];
+        people = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
 -(void)grabAllImages{
   
+    
    FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
   [requestConnection addRequest:[FBRequest requestForGraphPath:@"me/friends"] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-       NSLog(@"Stuff:%@",result);
+//       NSLog(@"Stuff:%@",result);
       [self parseFriends:result];
     }];
     [requestConnection start];
@@ -36,6 +37,9 @@
 
 -(void)parseFriends:(NSDictionary*)JSON{
     for (NSDictionary *dict in [JSON objectForKey:@"data"]) {
+        
+        [people setObject:[dict objectForKey:@"name"] forKey:[dict objectForKey:@"id"]];
+        
         FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
         [requestConnection addRequest:[FBRequest requestForGraphPath:[NSString stringWithFormat:@"%@/photos",[dict objectForKey:@"id"]]] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             //NSLog(@"Stuff:%@",result);
@@ -48,9 +52,15 @@
 -(void)parseJSON:(NSDictionary*)JSON{
     for (NSDictionary *dict in [JSON objectForKey:@"data"]) {
         if([[[dict objectForKey:@"tags"] objectForKey:@"data"] count] > 0){
+
+            for (NSDictionary *d in [[dict objectForKey:@"tags"] objectForKey:@"data"]) {
+                [self addPerson:[d objectForKey:@"name"] forID:[[d objectForKey:@"id"] integerValue]];
+            }
             
             ImageData *imageData = [[ImageData alloc] initWithJSON:dict];
-            [parser addImage:imageData];
+            [delegate recievedImageData:imageData];
+            
+
 
         }
     }
@@ -72,6 +82,17 @@
     }];
     [operation start];
 }
+
+-(void)addPerson:(NSString*)name forID:(NSInteger)personID{
+    if([people objectForKey:[NSString stringWithFormat:@"%i",personID]] == nil){
+        [people setObject:name forKey:[NSString stringWithFormat:@"%i",personID]];
+    }
+}
+
+-(NSString*)getNameForID:(NSInteger)tagID{
+    return [people objectForKey:[NSString stringWithFormat:@"%i",tagID]];
+}
+
 
 
 

@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FaceDetector.h"
 
 @interface TagInfo : NSObject
 
+-(NSInteger)getDistanceToPoint:(CGRect)rect;
+
 @property() CGPoint location;
 @property() NSInteger tagID;
+@property() CGRect faceRect;
 
 @end
 
@@ -19,11 +23,13 @@
 @protocol ImageDataDelegate
 @required
 -(void)recievedData:(ImageData*)image;
+-(void)addImageToDatabase:(UIImage*)image forID:(NSInteger)tagID;
 @end
 
 @interface ImageData : NSObject{
     UIImage *image;
     NSMutableArray *tags;
+    
 }
 
 -(id)initWithJSON:(NSDictionary*)JSON;

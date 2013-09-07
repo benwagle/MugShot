@@ -11,6 +11,7 @@
 
 
 @implementation ImageParser
+@synthesize delegate;
 
 - (id)init
 {
@@ -22,8 +23,23 @@
         faceDetector = [[FaceDetector alloc] init];
         
         faceRecognizer = [[CustomFaceRecognizer alloc] initWithEigenFaceRecognizer];
+        names = [[NSMutableDictionary alloc] init];
+                 
+        NSArray *array = [faceRecognizer getAllPeople];
+        
+        for (NSDictionary *dict in array) {
+            [names setObject:[dict objectForKey:@"id"] forKey:[dict objectForKey:@"name"]];
+        }
+                 
+        
+        grabber = [[ImageGrabber alloc] init];
+        grabber.delegate = self;
     }
     return self;
+}
+
+-(void)start{
+    [grabber grabAllImages];
 }
 
 -(void)addImage:(ImageData*)image{
@@ -33,6 +49,7 @@
 
 -(void)addToQueue:(ImageData *)image{
     [imageQueue addObject:image];
+    [image analyze];
     NSLog(@"%i images",[imageQueue count]);
 }
 
@@ -50,5 +67,19 @@
     
     [faceRecognizer learnFace:faces[0] ofPersonID:x fromImage:image];
 }
+-(void)addImageToDatabase:(UIImage*)image forID:(NSInteger)tagID{
+    
+    if ([names objectForKey:[NSString stringWithFormat:@"%i",tagID]] == nil) {
+        [faceRecognizer newPersonWithName:[NSString stringWithFormat:@"%i",tagID]];
+    }
+
+    [delegate addImageToDatabase:image forName:[grabber getNameForID:tagID]];
+}
+
+-(void)recievedImageData:(ImageData*)imageData{
+    [self addImage:imageData];
+}
+
+
 
 @end

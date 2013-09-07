@@ -87,9 +87,9 @@
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (FBSession.activeSession.isOpen) {
         NSLog(@"WORKED!!");
-                   ImageGrabber *grabber = [[ImageGrabber alloc] init];
-         [grabber setDelegate:self];
-         [grabber grabAllImages];
+                   ImageParser *parser = [[ImageParser alloc] init];
+         [parser setDelegate:self];
+        [parser start];
     } else {
        
     }
@@ -142,8 +142,9 @@
     return newImage;
 }
 
--(void)recievedImage:(UIImage *)image{
+-(void)addImageToDatabase:(UIImage *)image forName:(NSString *)name{
     imageView.image = image;
+    nameLabel.text = name;
 }
 
 

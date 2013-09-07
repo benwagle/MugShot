@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "CustomFaceRecognizer.h"
 #import "FaceDetector.h"
-#import "ImageGrabber.h"
+#import "ImageParser.h"
 
-@interface ViewController : UIViewController<ImageGrabberDelegate>{
+@interface ViewController : UIViewController<ImageParserDelegate>{
     CustomFaceRecognizer *faceRecognizer;
     FaceDetector *faceDetector;
 
     IBOutlet UIImageView *imageView;
+    IBOutlet UILabel *nameLabel;
 }
 
 

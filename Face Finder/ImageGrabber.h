@@ -7,18 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ImageParser.h"
+#import "ImageData.h"
 
 @protocol ImageGrabberDelegate
 @required
--(void)recievedImage:(UIImage*)image;
+-(void)recievedImageData:(ImageData*)imageData;
 @end
 
 @interface ImageGrabber : NSObject{
-    ImageParser *parser;
+    NSMutableDictionary *people;
 }
 
 -(void)grabAllImages;
+-(NSString*)getNameForID:(NSInteger)tagID;
 
 @property(nonatomic, strong) id<ImageGrabberDelegate> delegate;
 
