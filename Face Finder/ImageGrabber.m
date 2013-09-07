@@ -14,12 +14,15 @@
 
 @synthesize delegate;
 -(void)grabAllImages{
-   // FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
-  //  [requestConnection addRequest:[FBRequest requestForGraphPath:@"me/photos"] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-       // NSLog(@"Stuff:%@",result);
-    ///}];
-  //  [requestConnection start];
+   
+  
+   FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
+  [requestConnection addRequest:[FBRequest requestForGraphPath:@"me/photos?"] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+       NSLog(@"Stuff:%@",result);
+    }];
+    [requestConnection start];
     //[self grabImagesAtPath:@"https://graph.facebook.com/me/photos?"];
+   
 }
 
 -(void)grabImagesAtPath:(NSString*)path{
