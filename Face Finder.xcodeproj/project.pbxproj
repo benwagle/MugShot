@@ -33,7 +33,9 @@
 		964A5DAD17DAAB2500F6F6B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */; };
 		96E3BD6617DAB2A1001E02EE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E3BD6517DAB2A1001E02EE /* libz.dylib */; };
 		96E3BD6917DAB3C1001E02EE /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		96FF3D7D17DAEA35000CC676 /* ImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7C17DAEA35000CC676 /* ImageGrabber.m */; };
+		96FF3D7D17DAEA35000CC676 /* ImageGrabber.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7C17DAEA35000CC676 /* ImageGrabber.mm */; };
+		96FF3D8017DB1029000CC676 /* ImageData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7F17DB1028000CC676 /* ImageData.mm */; };
+		96FF3D8317DB1A6A000CC676 /* ImageParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D8217DB1A6A000CC676 /* ImageParser.mm */; };
 		E3E48DA6C70A4161865DCA10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6289A4848A74C9D9695172F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +77,11 @@
 		96E3BD6717DAB3C1001E02EE /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
 		96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
 		96FF3D7B17DAEA35000CC676 /* ImageGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGrabber.h; sourceTree = "<group>"; };
-		96FF3D7C17DAEA35000CC676 /* ImageGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGrabber.m; sourceTree = "<group>"; };
+		96FF3D7C17DAEA35000CC676 /* ImageGrabber.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageGrabber.mm; sourceTree = "<group>"; };
+		96FF3D7E17DB1028000CC676 /* ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageData.h; sourceTree = "<group>"; };
+		96FF3D7F17DB1028000CC676 /* ImageData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageData.mm; sourceTree = "<group>"; };
+		96FF3D8117DB1A6A000CC676 /* ImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageParser.h; sourceTree = "<group>"; };
+		96FF3D8217DB1A6A000CC676 /* ImageParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageParser.mm; sourceTree = "<group>"; };
 		C6289A4848A74C9D9695172F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,8 +152,12 @@
 		961F7F4417DA976B007DA527 /* Face Finder */ = {
 			isa = PBXGroup;
 			children = (
+				96FF3D7E17DB1028000CC676 /* ImageData.h */,
+				96FF3D7F17DB1028000CC676 /* ImageData.mm */,
+				96FF3D8117DB1A6A000CC676 /* ImageParser.h */,
+				96FF3D8217DB1A6A000CC676 /* ImageParser.mm */,
 				96FF3D7B17DAEA35000CC676 /* ImageGrabber.h */,
-				96FF3D7C17DAEA35000CC676 /* ImageGrabber.m */,
+				96FF3D7C17DAEA35000CC676 /* ImageGrabber.mm */,
 				96E3BD6717DAB3C1001E02EE /* UIImage+OpenCV.h */,
 				96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */,
 				961F7F4D17DA976B007DA527 /* AppDelegate.h */,
@@ -290,7 +300,9 @@
 				961F7F6E17DA9B0C007DA527 /* CustomFaceRecognizer.mm in Sources */,
 				961F7F9717DAA28F007DA527 /* FaceDetector.mm in Sources */,
 				96E3BD6917DAB3C1001E02EE /* UIImage+OpenCV.mm in Sources */,
-				96FF3D7D17DAEA35000CC676 /* ImageGrabber.m in Sources */,
+				96FF3D7D17DAEA35000CC676 /* ImageGrabber.mm in Sources */,
+				96FF3D8017DB1029000CC676 /* ImageData.mm in Sources */,
+				96FF3D8317DB1A6A000CC676 /* ImageParser.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

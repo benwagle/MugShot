@@ -31,17 +31,18 @@
      object:nil];
     
 	// Do any additional setup after loading the view, typically from a nib.
+
     faceDetector = [[FaceDetector alloc] init];
     
     faceRecognizer = [[CustomFaceRecognizer alloc] initWithEigenFaceRecognizer];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate openSessionWithAllowLoginUI:YES];
-    /*[faceRecognizer newPersonWithName:@"Ben"];
+/*    [faceRecognizer newPersonWithName:@"Ben"];
     [faceRecognizer newPersonWithName:@"Mike"];
     [faceRecognizer newPersonWithName:@"Or"];*/
     
-   /* [self addFile:@"Ben1.jpg" forPerson:1];
+  /*  [self addFile:@"Ben1.jpg" forPerson:1];
     [self addFile:@"Ben2.jpg" forPerson:1];
     [self addFile:@"Ben3.jpg" forPerson:1];
     [self addFile:@"Ben4.jpg" forPerson:1];
@@ -67,9 +68,10 @@
     [self addFile:@"Or7.jpg" forPerson:3];
     [self addFile:@"Or8.jpg" forPerson:3];*/
     
- /*   [faceRecognizer trainModel];
+/*    [faceRecognizer trainModel];
+
     
-    UIImage *im2 = [UIImage imageNamed:@"Or9.jpg"];
+    UIImage *im2 = [UIImage imageNamed:@"Mike9.jpg"];
     cv::Mat image2 = [im2 CVMat];
     
     std::vector<cv::Rect> faces2 = [faceDetector facesFromImage:image2];
@@ -79,7 +81,7 @@
     //  if([faceRecognizer trainModel]){
     //    NSLog(@"Train successful!");
     // }*/
-    
+  
 }
 
 - (void)sessionStateChanged:(NSNotification*)notification {
@@ -93,7 +95,6 @@
     }
 }
 
-
 -(void)addFile:(NSString*)fileName forPerson:(NSInteger)x{
     UIImage *im = [UIImage imageNamed:fileName];
     cv::Mat image = [im CVMat];
@@ -103,6 +104,7 @@
     
     [faceRecognizer learnFace:faces[0] ofPersonID:x fromImage:image];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

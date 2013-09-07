@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ImageParser.h"
+
 @protocol ImageGrabberDelegate
 @required
 -(void)recievedImage:(UIImage*)image;
 @end
 
 @interface ImageGrabber : NSObject{
+    ImageParser *parser;
 }
 
 -(void)grabAllImages;
