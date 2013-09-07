@@ -17,10 +17,28 @@
 		961F7F5317DA976B007DA527 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 961F7F5217DA976B007DA527 /* Default@2x.png */; };
 		961F7F5517DA976B007DA527 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 961F7F5417DA976B007DA527 /* Default-568h@2x.png */; };
 		961F7F5817DA976B007DA527 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961F7F5617DA976B007DA527 /* MainStoryboard.storyboard */; };
-		961F7F5B17DA976B007DA527 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961F7F5A17DA976B007DA527 /* ViewController.m */; };
+		961F7F5B17DA976B007DA527 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 961F7F5A17DA976B007DA527 /* ViewController.mm */; };
+		961F7F6B17DA9AE2007DA527 /* OpenCVData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 961F7F6A17DA9AE2007DA527 /* OpenCVData.mm */; };
+		961F7F6E17DA9B0C007DA527 /* CustomFaceRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 961F7F6D17DA9B0C007DA527 /* CustomFaceRecognizer.mm */; };
+		961F7F7017DA9B5A007DA527 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F6F17DA9B5A007DA527 /* libsqlite3.dylib */; };
+		961F7F7217DA9BD5007DA527 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7117DA9BD5007DA527 /* AVFoundation.framework */; };
+		961F7F7417DA9C68007DA527 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7317DA9C68007DA527 /* Accelerate.framework */; };
+		961F7F7617DA9C6E007DA527 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7517DA9C6E007DA527 /* AssetsLibrary.framework */; };
+		961F7F7817DA9C74007DA527 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7717DA9C74007DA527 /* CoreImage.framework */; };
+		961F7F7A17DA9C7A007DA527 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7917DA9C7A007DA527 /* CoreMedia.framework */; };
+		961F7F7C17DA9C7E007DA527 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7B17DA9C7E007DA527 /* CoreVideo.framework */; };
+		961F7F7E17DA9C87007DA527 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7D17DA9C87007DA527 /* QuartzCore.framework */; };
+		961F7F9717DAA28F007DA527 /* FaceDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 961F7F9617DAA28F007DA527 /* FaceDetector.mm */; };
+		961F7F9917DAA491007DA527 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 961F7F9817DAA491007DA527 /* haarcascade_frontalface_alt2.xml */; };
+		964A5DAD17DAAB2500F6F6B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */; };
+		96E3BD6617DAB2A1001E02EE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E3BD6517DAB2A1001E02EE /* libz.dylib */; };
+		96E3BD6917DAB3C1001E02EE /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		96FF3D7D17DAEA35000CC676 /* ImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7C17DAEA35000CC676 /* ImageGrabber.m */; };
+		E3E48DA6C70A4161865DCA10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6289A4848A74C9D9695172F /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34211B2A2A8241BEA1582DEF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		961F7F3B17DA976B007DA527 /* Face Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Face Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		961F7F3E17DA976B007DA527 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		961F7F4017DA976B007DA527 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,7 +54,29 @@
 		961F7F5417DA976B007DA527 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		961F7F5717DA976B007DA527 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		961F7F5917DA976B007DA527 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		961F7F5A17DA976B007DA527 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		961F7F5A17DA976B007DA527 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		961F7F6917DA9AE2007DA527 /* OpenCVData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVData.h; sourceTree = "<group>"; };
+		961F7F6A17DA9AE2007DA527 /* OpenCVData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVData.mm; sourceTree = "<group>"; };
+		961F7F6C17DA9B0C007DA527 /* CustomFaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFaceRecognizer.h; sourceTree = "<group>"; };
+		961F7F6D17DA9B0C007DA527 /* CustomFaceRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomFaceRecognizer.mm; sourceTree = "<group>"; };
+		961F7F6F17DA9B5A007DA527 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		961F7F7117DA9BD5007DA527 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		961F7F7317DA9C68007DA527 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		961F7F7517DA9C6E007DA527 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		961F7F7717DA9C74007DA527 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		961F7F7917DA9C7A007DA527 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		961F7F7B17DA9C7E007DA527 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		961F7F7D17DA9C87007DA527 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		961F7F9517DAA28F007DA527 /* FaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetector.h; sourceTree = "<group>"; };
+		961F7F9617DAA28F007DA527 /* FaceDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceDetector.mm; sourceTree = "<group>"; };
+		961F7F9817DAA491007DA527 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
+		964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		96E3BD6517DAB2A1001E02EE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		96E3BD6717DAB3C1001E02EE /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		96FF3D7B17DAEA35000CC676 /* ImageGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGrabber.h; sourceTree = "<group>"; };
+		96FF3D7C17DAEA35000CC676 /* ImageGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGrabber.m; sourceTree = "<group>"; };
+		C6289A4848A74C9D9695172F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +84,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E3BD6617DAB2A1001E02EE /* libz.dylib in Frameworks */,
+				961F7F7E17DA9C87007DA527 /* QuartzCore.framework in Frameworks */,
+				961F7F7C17DA9C7E007DA527 /* CoreVideo.framework in Frameworks */,
+				961F7F7A17DA9C7A007DA527 /* CoreMedia.framework in Frameworks */,
+				961F7F7817DA9C74007DA527 /* CoreImage.framework in Frameworks */,
+				961F7F7617DA9C6E007DA527 /* AssetsLibrary.framework in Frameworks */,
+				961F7F7417DA9C68007DA527 /* Accelerate.framework in Frameworks */,
+				961F7F7217DA9BD5007DA527 /* AVFoundation.framework in Frameworks */,
+				961F7F7017DA9B5A007DA527 /* libsqlite3.dylib in Frameworks */,
 				961F7F3F17DA976B007DA527 /* UIKit.framework in Frameworks */,
 				961F7F4117DA976B007DA527 /* Foundation.framework in Frameworks */,
 				961F7F4317DA976B007DA527 /* CoreGraphics.framework in Frameworks */,
+				964A5DAD17DAAB2500F6F6B1 /* opencv2.framework in Frameworks */,
+				E3E48DA6C70A4161865DCA10 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +107,20 @@
 		961F7F3217DA976B007DA527 = {
 			isa = PBXGroup;
 			children = (
+				96E3BD6517DAB2A1001E02EE /* libz.dylib */,
+				961F7F7D17DA9C87007DA527 /* QuartzCore.framework */,
+				961F7F7B17DA9C7E007DA527 /* CoreVideo.framework */,
+				961F7F7917DA9C7A007DA527 /* CoreMedia.framework */,
+				961F7F7717DA9C74007DA527 /* CoreImage.framework */,
+				961F7F7517DA9C6E007DA527 /* AssetsLibrary.framework */,
+				961F7F7317DA9C68007DA527 /* Accelerate.framework */,
+				961F7F7117DA9BD5007DA527 /* AVFoundation.framework */,
+				961F7F6F17DA9B5A007DA527 /* libsqlite3.dylib */,
+				964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */,
 				961F7F4417DA976B007DA527 /* Face Finder */,
 				961F7F3D17DA976B007DA527 /* Frameworks */,
 				961F7F3C17DA976B007DA527 /* Products */,
+				34211B2A2A8241BEA1582DEF /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +138,7 @@
 				961F7F3E17DA976B007DA527 /* UIKit.framework */,
 				961F7F4017DA976B007DA527 /* Foundation.framework */,
 				961F7F4217DA976B007DA527 /* CoreGraphics.framework */,
+				C6289A4848A74C9D9695172F /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,11 +146,22 @@
 		961F7F4417DA976B007DA527 /* Face Finder */ = {
 			isa = PBXGroup;
 			children = (
+				96FF3D7B17DAEA35000CC676 /* ImageGrabber.h */,
+				96FF3D7C17DAEA35000CC676 /* ImageGrabber.m */,
+				96E3BD6717DAB3C1001E02EE /* UIImage+OpenCV.h */,
+				96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */,
 				961F7F4D17DA976B007DA527 /* AppDelegate.h */,
 				961F7F4E17DA976B007DA527 /* AppDelegate.m */,
 				961F7F5617DA976B007DA527 /* MainStoryboard.storyboard */,
 				961F7F5917DA976B007DA527 /* ViewController.h */,
-				961F7F5A17DA976B007DA527 /* ViewController.m */,
+				961F7F5A17DA976B007DA527 /* ViewController.mm */,
+				961F7F6917DA9AE2007DA527 /* OpenCVData.h */,
+				961F7F6A17DA9AE2007DA527 /* OpenCVData.mm */,
+				961F7F6C17DA9B0C007DA527 /* CustomFaceRecognizer.h */,
+				961F7F6D17DA9B0C007DA527 /* CustomFaceRecognizer.mm */,
+				961F7F9517DAA28F007DA527 /* FaceDetector.h */,
+				961F7F9617DAA28F007DA527 /* FaceDetector.mm */,
+				961F7F9817DAA491007DA527 /* haarcascade_frontalface_alt2.xml */,
 				961F7F4517DA976B007DA527 /* Supporting Files */,
 			);
 			path = "Face Finder";
@@ -114,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 961F7F5E17DA976B007DA527 /* Build configuration list for PBXNativeTarget "Face Finder" */;
 			buildPhases = (
+				1A70BD944FA14745B0199BE6 /* Check Pods Manifest.lock */,
 				961F7F3717DA976B007DA527 /* Sources */,
 				961F7F3817DA976B007DA527 /* Frameworks */,
 				961F7F3917DA976B007DA527 /* Resources */,
+				54F4419895874E97BD35CB51 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,10 +239,44 @@
 				961F7F5317DA976B007DA527 /* Default@2x.png in Resources */,
 				961F7F5517DA976B007DA527 /* Default-568h@2x.png in Resources */,
 				961F7F5817DA976B007DA527 /* MainStoryboard.storyboard in Resources */,
+				961F7F9917DAA491007DA527 /* haarcascade_frontalface_alt2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A70BD944FA14745B0199BE6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		54F4419895874E97BD35CB51 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		961F7F3717DA976B007DA527 /* Sources */ = {
@@ -175,7 +285,12 @@
 			files = (
 				961F7F4B17DA976B007DA527 /* main.m in Sources */,
 				961F7F4F17DA976B007DA527 /* AppDelegate.m in Sources */,
-				961F7F5B17DA976B007DA527 /* ViewController.m in Sources */,
+				961F7F5B17DA976B007DA527 /* ViewController.mm in Sources */,
+				961F7F6B17DA9AE2007DA527 /* OpenCVData.mm in Sources */,
+				961F7F6E17DA9B0C007DA527 /* CustomFaceRecognizer.mm in Sources */,
+				961F7F9717DAA28F007DA527 /* FaceDetector.mm in Sources */,
+				96E3BD6917DAB3C1001E02EE /* UIImage+OpenCV.mm in Sources */,
+				96FF3D7D17DAEA35000CC676 /* ImageGrabber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +374,12 @@
 		};
 		961F7F5F17DA976B007DA527 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34211B2A2A8241BEA1582DEF /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Face Finder/Face Finder-Prefix.pch";
 				INFOPLIST_FILE = "Face Finder/Face Finder-Info.plist";
@@ -270,7 +390,12 @@
 		};
 		961F7F6017DA976B007DA527 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34211B2A2A8241BEA1582DEF /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Face Finder/Face Finder-Prefix.pch";
 				INFOPLIST_FILE = "Face Finder/Face Finder-Info.plist";
@@ -298,6 +423,7 @@
 				961F7F6017DA976B007DA527 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
