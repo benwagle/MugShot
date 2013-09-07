@@ -36,4 +36,15 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
     return faces;
 }
 
++(NSArray*)CGRectFromImage:(UIImage*)im{
+    CIImage* image = [CIImage imageWithCGImage:im.CGImage];
+
+    CIDetector* detector = [CIDetector detectorOfType:CIDetectorTypeFace
+                                              context:nil options:[NSDictionary dictionaryWithObject:CIDetectorAccuracyHigh forKey:CIDetectorAccuracyHigh]];
+    return [detector featuresInImage:image];
+
+}
+
+
+
 @end

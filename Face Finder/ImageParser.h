@@ -15,10 +15,11 @@
 @protocol ImageParserDelegate
 @required
 -(void)addImageToDatabase:(UIImage*)image forName:(NSString*)name;
+-(void)showImage:(UIImage*)image;
+
 @end
 
 @interface ImageParser : NSObject<ImageDataDelegate, ImageGrabberDelegate>{
-    NSMutableArray *imageQueue;
     NSMutableSet *imageSet;
     
     CustomFaceRecognizer *faceRecognizer;
@@ -27,9 +28,12 @@
     ImageGrabber *grabber;
     
     NSMutableDictionary *names;
+    
+    NSInteger passed;
+    NSInteger failed;
 }
 
--(void)addImage:(ImageData*)image;
+//-(void)addImage:(ImageData*)image;
 -(void)start;
 
 @property(nonatomic, strong) id<ImageParserDelegate> delegate;

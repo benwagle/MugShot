@@ -36,6 +36,10 @@
 		96FF3D7D17DAEA35000CC676 /* ImageGrabber.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7C17DAEA35000CC676 /* ImageGrabber.mm */; };
 		96FF3D8017DB1029000CC676 /* ImageData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7F17DB1028000CC676 /* ImageData.mm */; };
 		96FF3D8317DB1A6A000CC676 /* ImageParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D8217DB1A6A000CC676 /* ImageParser.mm */; };
+		96FF3D8517DBA45C000CC676 /* Mike1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D8417DBA45C000CC676 /* Mike1.jpg */; };
+		96FF3D8717DBA799000CC676 /* MikeAndBen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D8617DBA799000CC676 /* MikeAndBen.jpg */; };
+		96FF3D8B17DBA8EB000CC676 /* MikeAndBen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D8A17DBA8EA000CC676 /* MikeAndBen2.jpg */; };
+		96FF3D8D17DBA990000CC676 /* Group.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96FF3D8C17DBA990000CC676 /* Group.jpg */; };
 		E3E48DA6C70A4161865DCA10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6289A4848A74C9D9695172F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +86,10 @@
 		96FF3D7F17DB1028000CC676 /* ImageData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageData.mm; sourceTree = "<group>"; };
 		96FF3D8117DB1A6A000CC676 /* ImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageParser.h; sourceTree = "<group>"; };
 		96FF3D8217DB1A6A000CC676 /* ImageParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageParser.mm; sourceTree = "<group>"; };
+		96FF3D8417DBA45C000CC676 /* Mike1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mike1.jpg; sourceTree = "<group>"; };
+		96FF3D8617DBA799000CC676 /* MikeAndBen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MikeAndBen.jpg; sourceTree = "<group>"; };
+		96FF3D8A17DBA8EA000CC676 /* MikeAndBen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MikeAndBen2.jpg; sourceTree = "<group>"; };
+		96FF3D8C17DBA990000CC676 /* Group.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Group.jpg; sourceTree = "<group>"; };
 		C6289A4848A74C9D9695172F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,6 +160,10 @@
 		961F7F4417DA976B007DA527 /* Face Finder */ = {
 			isa = PBXGroup;
 			children = (
+				96FF3D8617DBA799000CC676 /* MikeAndBen.jpg */,
+				96FF3D8A17DBA8EA000CC676 /* MikeAndBen2.jpg */,
+				96FF3D8C17DBA990000CC676 /* Group.jpg */,
+				96FF3D8417DBA45C000CC676 /* Mike1.jpg */,
 				96FF3D7E17DB1028000CC676 /* ImageData.h */,
 				96FF3D7F17DB1028000CC676 /* ImageData.mm */,
 				96FF3D8117DB1A6A000CC676 /* ImageParser.h */,
@@ -250,6 +262,10 @@
 				961F7F5517DA976B007DA527 /* Default-568h@2x.png in Resources */,
 				961F7F5817DA976B007DA527 /* MainStoryboard.storyboard in Resources */,
 				961F7F9917DAA491007DA527 /* haarcascade_frontalface_alt2.xml in Resources */,
+				96FF3D8517DBA45C000CC676 /* Mike1.jpg in Resources */,
+				96FF3D8717DBA799000CC676 /* MikeAndBen.jpg in Resources */,
+				96FF3D8B17DBA8EB000CC676 /* MikeAndBen2.jpg in Resources */,
+				96FF3D8D17DBA990000CC676 /* Group.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +411,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Face Finder/Face Finder-Prefix.pch";
 				INFOPLIST_FILE = "Face Finder/Face Finder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -411,6 +428,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Face Finder/Face Finder-Prefix.pch";
 				INFOPLIST_FILE = "Face Finder/Face Finder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

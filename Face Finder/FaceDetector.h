@@ -15,5 +15,6 @@
 }
 
 - (std::vector<cv::Rect>)facesFromImage:(cv::Mat&)image;
++(NSArray*)CGRectFromImage:(UIImage*)im;
 
 @end

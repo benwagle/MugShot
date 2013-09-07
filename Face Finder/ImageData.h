@@ -16,6 +16,7 @@
 @property() CGPoint location;
 @property() NSInteger tagID;
 @property() CGRect faceRect;
+@property() cv::Rect face;
 
 @end
 
@@ -23,18 +24,21 @@
 @protocol ImageDataDelegate
 @required
 -(void)recievedData:(ImageData*)image;
--(void)addImageToDatabase:(UIImage*)image forID:(NSInteger)tagID;
+-(void)addImageToDatabase:(UIImage*)image forID:(NSInteger)tagID forFace:(cv::Rect)face;
+-(void)showImage:(UIImage*)image;
+-(void)markImageAsFinishedforImageID:(NSString*)photoID;
 @end
 
 @interface ImageData : NSObject{
     UIImage *image;
     NSMutableArray *tags;
-    
 }
 
 -(id)initWithJSON:(NSDictionary*)JSON;
+-(id)initWithJSON:(NSDictionary *)JSON andImage:(UIImage*)i andDelegate:(id<ImageDataDelegate>)d;
 -(void)analyze;
 
 @property(nonatomic, strong) id<ImageDataDelegate> delegate;
+@property(nonatomic, strong) NSString *imageID;
 
 @end

@@ -147,5 +147,8 @@
     nameLabel.text = name;
 }
 
+-(void)showImage:(UIImage *)image{
+    imageView.image = image;
+}
 
 @end

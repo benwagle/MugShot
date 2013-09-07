@@ -12,7 +12,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 @implementation TagInfo
-@synthesize location, tagID, faceRect;
+@synthesize location, tagID, faceRect, face;
 
 -(NSInteger)getDistanceToPoint:(CGRect)rect{
     if(!CGRectEqualToRect(faceRect, CGRectZero)){
@@ -29,23 +29,50 @@
 static FaceDetector *faceDetector;
 
 @implementation ImageData
-@synthesize delegate;
+@synthesize delegate, imageID;
 
 -(id)initWithJSON:(NSDictionary*)JSON{
     self = [super init];
     
     tags = [[NSMutableArray alloc] init];
+    self.imageID = [JSON objectForKey:@"id"];
     
-    [self getImage:[JSON objectForKey:@"picture"]];
+    [self getImage:[JSON objectForKey:@"source"]];
     
-    for (NSDictionary *dict in [[JSON objectForKey:@"tags"] objectForKey:@"data"]) {
-        [self addTagAtX:[[dict objectForKey:@"x"] integerValue] y:[[dict objectForKey:@"y"] integerValue] userID:[[dict objectForKey:@"id"] integerValue]];
-    }
+
     
     if(faceDetector == nil)
     {
         faceDetector = [[FaceDetector alloc] init];
     }
+    for (NSDictionary *dict in [[JSON objectForKey:@"tags"] objectForKey:@"data"]) {
+        [self addTagAtX:[[dict objectForKey:@"x"] integerValue] y:[[dict objectForKey:@"y"] integerValue] userID:[[dict objectForKey:@"id"] integerValue]];
+    }
+    
+    return self;
+}
+
+-(id)initWithJSON:(NSDictionary *)JSON andImage:(UIImage*)i andDelegate:(id<ImageDataDelegate>)d{
+    self = [super init];
+    
+    tags = [[NSMutableArray alloc] init];
+    self.delegate = d;
+    NSLog(@"DICT %@",JSON);
+    
+    for (NSDictionary *dict in [[JSON objectForKey:@"tags"] objectForKey:@"data"]) {
+        NSLog(@"%@",dict);
+
+      //  [self addTagAtX:[[dict objectForKey:@"x"] integerValue] y:[[dict objectForKey:@"y"] integerValue] userID:[[dict objectForKey:@"id"] integerValue]];
+    }
+    [self addTagAtX:0 y:0 userID:552452699];
+    
+    if(faceDetector == nil)
+    {
+        faceDetector = [[FaceDetector alloc] init];
+    }
+    
+    image = i;
+    [self.delegate recievedData:self];
     
     return self;
 }
@@ -71,37 +98,55 @@ static FaceDetector *faceDetector;
 -(void)analyze{
     cv::Mat im = [image CVMat];
 
-    std::vector<cv::Rect> faces = [faceDetector facesFromImage:im];
+ //   std::vector<cv::Rect> faces = [faceDetector facesFromImage:im];
+    NSArray *faces = [FaceDetector CGRectFromImage:image];
+ //   NSLog(@"Found:%li",faces.size());
+   // NSLog(@"Found:%i faces",[faces count]);
     
-    for (int x=0; x<faces.size(); x++) {
-        CGRect rect = [OpenCVData faceToCGRect:faces[x]];
+    if([faces count] == 0){
+       // NSLog(@"NONE!");
+        [delegate showImage:image];
+        [delegate markImageAsFinishedforImageID:self.imageID];
+        return;
+    }
+    
+    for (int y=0;y<[tags count];y++) {
+        TagInfo *tag = tags[y];
+
         int min = INFINITY;
         TagInfo *minTag;
-        for (TagInfo *tag in tags) {
+        int minIndex = 0;
+        
+
+        for (int x=0; x<[faces count]; x++) {
+            CGRect rect = ((CIFaceFeature*)faces[x]).bounds;
             int distance = [tag getDistanceToPoint:rect];
             if(distance < min){
                 min = distance;
                 minTag = tag;
+                minIndex = x;
             }
-            
         }
-        minTag.faceRect = rect;
+        
+        minTag.faceRect = ((CIFaceFeature*)faces[minIndex]).bounds;
+        minTag.face = [OpenCVData CGRectToFace:((CIFaceFeature*)faces[minIndex]).bounds];
+
+        
     }
+    
+
     for (TagInfo *tag in tags) {
         if(CGRectEqualToRect(tag.faceRect, CGRectZero)){
             continue;
+            NSLog(@"Skip");
         }
-        
-        [delegate addImageToDatabase:[self cropImage:image forRect:tag.faceRect] forID:tag.tagID];
-    }
-}
 
--(UIImage*)cropImage:(UIImage*)large forRect:(CGRect)rect{
-    CGImageRef imageRef = CGImageCreateWithImageInRect([large CGImage], rect);
-    UIImage *small = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    
-    return small;
+        //[delegate addImageToDatabase:[self cropImage:image forRect:tag.faceRect] forID:tag.tagID forFace:tag.face];
+        [delegate addImageToDatabase:image forID:tag.tagID forFace:tag.face];
+        
+
+    }
+    [delegate markImageAsFinishedforImageID:self.imageID];
 }
 
 @end

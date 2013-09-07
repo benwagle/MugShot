@@ -11,15 +11,20 @@
 
 @protocol ImageGrabberDelegate
 @required
--(void)recievedImageData:(ImageData*)imageData;
+-(BOOL)recievedImageData:(NSDictionary*)dict;
+-(void)checkForMore;
 @end
 
 @interface ImageGrabber : NSObject{
     NSMutableDictionary *people;
+    int personIndex;
+    NSMutableArray *friendQueue;
+    int peopleProcessing;
 }
 
 -(void)grabAllImages;
 -(NSString*)getNameForID:(NSInteger)tagID;
+-(void)nextPerson;
 
 @property(nonatomic, strong) id<ImageGrabberDelegate> delegate;
 

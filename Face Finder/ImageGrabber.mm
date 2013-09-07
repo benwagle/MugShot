@@ -19,6 +19,7 @@
     self = [super init];
     if (self) {
         people = [[NSMutableDictionary alloc] init];
+        friendQueue = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -40,13 +41,32 @@
         
         [people setObject:[dict objectForKey:@"name"] forKey:[dict objectForKey:@"id"]];
         
-        FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
-        [requestConnection addRequest:[FBRequest requestForGraphPath:[NSString stringWithFormat:@"%@/photos",[dict objectForKey:@"id"]]] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-            //NSLog(@"Stuff:%@",result);
-            [self parseJSON:result];
-        }];
-        [requestConnection start];
+        [friendQueue addObject:[dict objectForKey:@"id"]];
     }
+    [self nextPerson];
+}
+
+-(void)nextPerson{
+    if([friendQueue count] == 0){
+        return;
+    }
+    if(peopleProcessing > 0){
+        return;
+    }
+    
+    NSLog(@"Friends left:%i",[friendQueue count]);
+    NSString *personID = [friendQueue objectAtIndex:0];
+    
+    peopleProcessing++;
+    FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
+    [requestConnection addRequest:[FBRequest requestForGraphPath:[NSString stringWithFormat:@"%@/photos",personID]] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        //NSLog(@"Stuff:%@",result);
+        [self parseJSON:result];
+        peopleProcessing--;
+    }];
+    [requestConnection start];
+    [friendQueue removeObjectAtIndex:0];
+
 }
 
 -(void)parseJSON:(NSDictionary*)JSON{
@@ -57,13 +77,13 @@
                 [self addPerson:[d objectForKey:@"name"] forID:[[d objectForKey:@"id"] integerValue]];
             }
             
-            ImageData *imageData = [[ImageData alloc] initWithJSON:dict];
-            [delegate recievedImageData:imageData];
+            [delegate recievedImageData:dict];
             
 
 
         }
     }
+    [delegate checkForMore];
     [self grabImagesAtPath:[[JSON objectForKey:@"paging"] objectForKey:@"next"]];
 
 

@@ -208,6 +208,41 @@
     };
 }
 
+-(void)markImageIDFinished:(NSString*)imageID{
+    NSLog(@"ADD!");
+    
+    const char* insertSQL = "INSERT INTO imported (image_id) VALUES (?)";
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(_db, insertSQL, -1, &statement, nil) == SQLITE_OK) {
+        sqlite3_bind_text(statement, 1, [imageID UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_step(statement);
+    }else{
+        NSLog(@"Nope.");
+    }
+    
+    sqlite3_finalize(statement);
+}
+
+- (BOOL)existImageID:(NSString*)imageID{
+
+    BOOL toReturn = NO;;
+    
+    const char* selectSQL = "SELECT image_id FROM imported WHERE image_id = ?";
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_prepare_v2(_db, selectSQL, -1, &statement, nil) == SQLITE_OK) {
+       sqlite3_bind_text(statement, 1, [imageID UTF8String], -1, SQLITE_TRANSIENT);
+    }
+    if (sqlite3_step(statement) != SQLITE_DONE) {
+        toReturn = YES;
+    }
+    
+    sqlite3_finalize(statement);
+    
+    return toReturn;
+}
+
 - (void)createTablesIfNeeded
 {
     // People table
@@ -227,6 +262,14 @@
     
     if (sqlite3_exec(_db, imagesSQL, nil, nil, nil) != SQLITE_OK) {
         NSLog(@"The images table could not be created.");
+    }
+    
+    const char *importedImages = "CREATE TABLE IF NOT EXISTS imported ("
+        "'id' integer NOT NULL PRIMARY KEY AUTOINCREMENT, "
+        "'image_id' text NOT NULL) ";
+    
+    if (sqlite3_exec(_db, importedImages, nil, nil, nil) != SQLITE_OK) {
+        NSLog(@"The imported table could not be created.");
     }
 }
 
