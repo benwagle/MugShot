@@ -21,7 +21,7 @@
         
         faceDetector = [[FaceDetector alloc] init];
         
-        faceRecognizer = [[CustomFaceRecognizer alloc] initWithEigenFaceRecognizer];
+        faceRecognizer = [CustomFaceRecognizer sharedRecognizer];
         names = [[NSMutableDictionary alloc] init];
                  
         NSArray *array = [faceRecognizer getAllPeople];
@@ -40,30 +40,32 @@
     return self;
 }
 
--(void)start{
+-(void)startWithImage:(UIImage*)image{
     //[grabber grabAllImages];
     //return;
  /*   NSLog(@"START!");
     UIImage *image = [UIImage imageNamed:@"MikeAndBen.jpg"];
 
     ImageData *imageData = [[ImageData alloc] initWithJSON:@{@"tags":@{@"data": @{@"id": @552452699, @"x":@0, @"y":@0}}} andImage:image andDelegate:self];*/
-    NSLog(@"Start!");
+ //   NSLog(@"Name:%@",[grabber getNameForID:@"698952030"]);
     
-    [faceRecognizer trainModel];
-    NSLog(@"End!");
     
-    UIImage *im2 = [UIImage imageNamed:@"Mike1.jpg"];
-    cv::Mat image2 = [im2 CVMat];
+ //   [faceRecognizer trainModel];
+ //   NSLog(@"End!");
+    
+   // UIImage *im2 = [UIImage imageNamed:@"Mike1.jpg"];
+    cv::Mat image2 = [image CVMat];
     
     //std::vector<cv::Rect> faces2 = [faceDetector facesFromImage:image2];
     
-    NSArray *array = [FaceDetector CGRectFromImage:im2];
+    NSArray *array = [FaceDetector CGRectFromImage:image];
     
     for (int x=0; x<[array count]; x++) {
         cv::Rect face = [OpenCVData CGRectToFace:((CIFaceFeature*)array[x]).bounds];
       //  int faceID = [[[faceRecognizer recognizeFace:face inImage:image2] objectForKey:@"personName"] integerValue];
-        NSLog(@"%@",[faceRecognizer recognizeFace:face inImage:image2] );
-        
+        NSDictionary *result = [faceRecognizer recognizeFace:face inImage:image2];
+        NSLog(@"%@", result);
+        [delegate foundPersonID:[result objectForKey:@"personName"]];
     }
 
     //  NSLog(@"%@",[faceRecognizer getAllPeople]);

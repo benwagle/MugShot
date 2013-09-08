@@ -11,6 +11,15 @@
 
 @implementation CustomFaceRecognizer
 
++ (id)sharedRecognizer {
+    static CustomFaceRecognizer *sharedRecognizer = nil;
+    @synchronized(self) {
+        if (sharedRecognizer == nil)
+            sharedRecognizer = [[self alloc] initWithEigenFaceRecognizer];
+    }
+    return sharedRecognizer;
+}
+
 - (id)init
 {
     self = [super init];

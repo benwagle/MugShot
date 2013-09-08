@@ -16,6 +16,7 @@
 @required
 -(void)addImageToDatabase:(UIImage*)image forName:(NSString*)name;
 -(void)showImage:(UIImage*)image;
+-(void)foundPersonID:(NSString*)string;
 
 @end
 
@@ -35,6 +36,8 @@
 
 //-(void)addImage:(ImageData*)image;
 -(void)start;
+-(void)startWithImage:(UIImage*)image;
+
 
 @property(nonatomic, strong) id<ImageParserDelegate> delegate;
 

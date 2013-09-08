@@ -12,13 +12,15 @@
 #import "ImageParser.h"
 
 @interface ViewController : UIViewController<ImageParserDelegate>{
-    CustomFaceRecognizer *faceRecognizer;
-    FaceDetector *faceDetector;
+    ImageParser *parser;
 
     IBOutlet UIImageView *imageView;
-    IBOutlet UILabel *nameLabel;
+    
+    BOOL appeared;
+    
+    UIImage *setImage;
 }
 
-
+-(void)setImage:(UIImage*)image;
 
 @end

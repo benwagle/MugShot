@@ -25,7 +25,7 @@
 }
 
 -(void)grabAllImages;
--(NSString*)getNameForID:(NSInteger)tagID;
+-(NSString*)getNameForID:(NSString*)tagID;
 -(void)nextPerson;
 
 @property(nonatomic, strong) id<ImageGrabberDelegate> delegate;

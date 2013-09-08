@@ -30,11 +30,16 @@
 		961F7F7E17DA9C87007DA527 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961F7F7D17DA9C87007DA527 /* QuartzCore.framework */; };
 		961F7F9717DAA28F007DA527 /* FaceDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 961F7F9617DAA28F007DA527 /* FaceDetector.mm */; };
 		961F7F9917DAA491007DA527 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 961F7F9817DAA491007DA527 /* haarcascade_frontalface_alt2.xml */; };
+		963604B417DC354F0069208B /* PreparingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 963604B317DC354E0069208B /* PreparingViewController.mm */; };
 		964A5DAD17DAAB2500F6F6B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */; };
+		96CE154117DC2AB60065425D /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CE154017DC2AB60065425D /* ResultViewController.m */; };
 		96DC690817DC067000C7B704 /* Mike9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DC690717DC067000C7B704 /* Mike9.jpg */; };
 		96DC690A17DC091E00C7B704 /* Ben5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DC690917DC091E00C7B704 /* Ben5.jpg */; };
 		96DC690C17DC160500C7B704 /* Ben4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DC690B17DC160500C7B704 /* Ben4.jpg */; };
 		96DC690E17DC16C300C7B704 /* Mike5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DC690D17DC16C200C7B704 /* Mike5.jpg */; };
+		96DC691317DC1D7F00C7B704 /* Dropbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DC691117DC1D7E00C7B704 /* Dropbox.png */; };
+		96DC691417DC1D7F00C7B704 /* Dropbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DC691217DC1D7E00C7B704 /* Dropbox@2x.png */; };
+		96DC691717DC1E7600C7B704 /* SourceViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96DC691617DC1E7600C7B704 /* SourceViewController.mm */; };
 		96E3BD6617DAB2A1001E02EE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E3BD6517DAB2A1001E02EE /* libz.dylib */; };
 		96E3BD6917DAB3C1001E02EE /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		96FF3D7D17DAEA35000CC676 /* ImageGrabber.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7C17DAEA35000CC676 /* ImageGrabber.mm */; };
@@ -80,11 +85,19 @@
 		961F7F9517DAA28F007DA527 /* FaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDetector.h; sourceTree = "<group>"; };
 		961F7F9617DAA28F007DA527 /* FaceDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceDetector.mm; sourceTree = "<group>"; };
 		961F7F9817DAA491007DA527 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
+		963604B217DC354E0069208B /* PreparingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreparingViewController.h; sourceTree = "<group>"; };
+		963604B317DC354E0069208B /* PreparingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PreparingViewController.mm; sourceTree = "<group>"; };
 		964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		96CE153F17DC2AB60065425D /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		96CE154017DC2AB60065425D /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		96DC690717DC067000C7B704 /* Mike9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mike9.jpg; sourceTree = "<group>"; };
 		96DC690917DC091E00C7B704 /* Ben5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ben5.jpg; sourceTree = "<group>"; };
 		96DC690B17DC160500C7B704 /* Ben4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ben4.jpg; sourceTree = "<group>"; };
 		96DC690D17DC16C200C7B704 /* Mike5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mike5.jpg; sourceTree = "<group>"; };
+		96DC691117DC1D7E00C7B704 /* Dropbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dropbox.png; sourceTree = "<group>"; };
+		96DC691217DC1D7E00C7B704 /* Dropbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dropbox@2x.png"; sourceTree = "<group>"; };
+		96DC691517DC1E7600C7B704 /* SourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceViewController.h; sourceTree = "<group>"; };
+		96DC691617DC1E7600C7B704 /* SourceViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SourceViewController.mm; sourceTree = "<group>"; };
 		96E3BD6517DAB2A1001E02EE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		96E3BD6717DAB3C1001E02EE /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
 		96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
@@ -187,14 +200,22 @@
 				961F7F4D17DA976B007DA527 /* AppDelegate.h */,
 				961F7F4E17DA976B007DA527 /* AppDelegate.m */,
 				961F7F5617DA976B007DA527 /* MainStoryboard.storyboard */,
+				963604B217DC354E0069208B /* PreparingViewController.h */,
+				963604B317DC354E0069208B /* PreparingViewController.mm */,
 				961F7F5917DA976B007DA527 /* ViewController.h */,
 				961F7F5A17DA976B007DA527 /* ViewController.mm */,
+				96DC691517DC1E7600C7B704 /* SourceViewController.h */,
+				96DC691617DC1E7600C7B704 /* SourceViewController.mm */,
+				96CE153F17DC2AB60065425D /* ResultViewController.h */,
+				96CE154017DC2AB60065425D /* ResultViewController.m */,
 				961F7F6917DA9AE2007DA527 /* OpenCVData.h */,
 				961F7F6A17DA9AE2007DA527 /* OpenCVData.mm */,
 				961F7F6C17DA9B0C007DA527 /* CustomFaceRecognizer.h */,
 				961F7F6D17DA9B0C007DA527 /* CustomFaceRecognizer.mm */,
 				961F7F9517DAA28F007DA527 /* FaceDetector.h */,
 				961F7F9617DAA28F007DA527 /* FaceDetector.mm */,
+				96DC691117DC1D7E00C7B704 /* Dropbox.png */,
+				96DC691217DC1D7E00C7B704 /* Dropbox@2x.png */,
 				961F7F9817DAA491007DA527 /* haarcascade_frontalface_alt2.xml */,
 				961F7F4517DA976B007DA527 /* Supporting Files */,
 			);
@@ -282,6 +303,8 @@
 				96DC690A17DC091E00C7B704 /* Ben5.jpg in Resources */,
 				96DC690C17DC160500C7B704 /* Ben4.jpg in Resources */,
 				96DC690E17DC16C300C7B704 /* Mike5.jpg in Resources */,
+				96DC691317DC1D7F00C7B704 /* Dropbox.png in Resources */,
+				96DC691417DC1D7F00C7B704 /* Dropbox@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +358,9 @@
 				96FF3D7D17DAEA35000CC676 /* ImageGrabber.mm in Sources */,
 				96FF3D8017DB1029000CC676 /* ImageData.mm in Sources */,
 				96FF3D8317DB1A6A000CC676 /* ImageParser.mm in Sources */,
+				96DC691717DC1E7600C7B704 /* SourceViewController.mm in Sources */,
+				96CE154117DC2AB60065425D /* ResultViewController.m in Sources */,
+				963604B417DC354F0069208B /* PreparingViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

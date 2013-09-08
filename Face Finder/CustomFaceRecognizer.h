@@ -16,6 +16,7 @@
     cv::Ptr<cv::FaceRecognizer> _model;
     
 }
++ (id)sharedRecognizer;
 
 - (id)initWithEigenFaceRecognizer;
 - (id)initWithFisherFaceRecognizer;

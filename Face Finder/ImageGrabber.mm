@@ -56,7 +56,7 @@
         if([[[dict objectForKey:@"tags"] objectForKey:@"data"] count] > 0){
             
             for (NSDictionary *d in [[dict objectForKey:@"tags"] objectForKey:@"data"]) {
-                [self addPerson:[d objectForKey:@"name"] forID:[[d objectForKey:@"id"] integerValue]];
+                [self addPerson:[d objectForKey:@"name"] forID:[d objectForKey:@"id"]];
             }
             
             [delegate recievedImageData:dict];
@@ -84,14 +84,14 @@
     [operation start];
 }
 
--(void)addPerson:(NSString*)name forID:(NSInteger)personID{
-    if([people objectForKey:[NSString stringWithFormat:@"%i",personID]] == nil){
-        [people setObject:name forKey:[NSString stringWithFormat:@"%i",personID]];
+-(void)addPerson:(NSString*)name forID:(NSString*)personID{
+    if([people objectForKey:personID] == nil){
+        [people setObject:name forKey:personID];
     }
 }
 
--(NSString*)getNameForID:(NSInteger)tagID{
-    return [people objectForKey:[NSString stringWithFormat:@"%i",tagID]];
+-(NSString*)getNameForID:(NSString*)tagID{
+    return [people objectForKey:tagID];
 }
 
 
