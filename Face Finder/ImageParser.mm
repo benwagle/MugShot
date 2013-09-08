@@ -51,8 +51,8 @@
 }
 
 -(void)startWithImage:(UIImage*)image{
-    [grabber grabAllImages];
-    return;
+   //[grabber grabAllImages];
+    //return;
  /*   NSLog(@"START!");
     UIImage *image = [UIImage imageNamed:@"MikeAndBen.jpg"];
 
@@ -133,6 +133,7 @@
 }
 
 -(BOOL)recievedImageData:(NSDictionary*)dict{
+    
     if([faceRecognizer existImageID:[dict objectForKey:@"id"]]){
         NSLog(@"ALREADY EXISTS!");
         return NO;

@@ -34,12 +34,13 @@
     [requestConnection start];
     */
     /* ,@{@"id":@"me", @"name":@"Mike Jaoudi"}*/
-    [self parseFriends:@{@"data": @[@{@"id":@100003700054145, @"name":@"Ben Wagle"},@{@"id":@"me", @"name":@"Mike Jaoudi"}]}];
+    [self parseFriends:@{@"data": @[@{@"id":@1270333381, @"name":@"Or Barnatan"},@{@"id":@"me", @"name":@"Ben Wagle"}]}];
 }
 
 -(void)parseFriends:(NSDictionary*)JSON{
     for (NSDictionary *dict in [JSON objectForKey:@"data"]) {
         
+       
         [people setObject:[dict objectForKey:@"name"] forKey:[dict objectForKey:@"id"]];
         
         FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
@@ -85,7 +86,7 @@
 }
 
 -(void)addPerson:(NSString*)name forID:(NSString*)personID{
-    if([people objectForKey:personID] == nil){
+    if([people objectForKey:personID] == nil && personID != nil){
         [people setObject:name forKey:personID];
     }
 }
