@@ -38,7 +38,7 @@
 -(void)start;
 -(void)startWithImage:(UIImage*)image;
 + (id)sharedParser;
-
+-(void)removeID:(NSString*)string;
 
 @property(nonatomic, strong) id<ImageParserDelegate> delegate;
 

@@ -32,7 +32,7 @@
 - (NSDictionary *)recognizeFace:(cv::Rect)face inImage:(cv::Mat&)image;
 -(void)markImageIDFinished:(NSString*)imageID;
 - (BOOL)existImageID:(NSString*)imageID;
-
+-(void)removeID:(NSString*)string;
 
 
 @end

@@ -11,6 +11,8 @@
 @interface ResultViewController : UIViewController{
     IBOutlet UILabel *name;
     IBOutlet UIImageView *imageView;
+    
+    NSString *userID;
 }
 
 -(void)getInfoForPersonID:(NSString*)string;

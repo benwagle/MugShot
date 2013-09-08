@@ -40,6 +40,7 @@
 }
 
 -(void)getInfoForPersonID:(NSString*)string{
+    userID = string;
     
     FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
     [requestConnection addRequest:[FBRequest requestForGraphPath:string] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -77,7 +78,8 @@
     [self.navigationController popToViewController:[childVC objectAtIndex:1] animated:YES];
 }
 -(IBAction)wrongPerson:(id)sender{
- //   [[ImageParser sharedParser]]
+    [[ImageParser sharedParser] removeID:userID];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

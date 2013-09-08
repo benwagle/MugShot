@@ -158,6 +158,10 @@
     NSLog(@"Passed:%i Failed:%i",passed,failed);
 }
 
+-(void)removeID:(NSString*)string{
+    
+}
+
 
 
 
