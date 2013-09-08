@@ -84,9 +84,9 @@
     setImage = image;
 }
 
--(void)foundPersonID:(NSString*)string{
+-(void)foundPersonID:(NSString*)string withImage:(UIImage *)image{
     ResultViewController *resultViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"result"];
-    [resultViewController getInfoForPersonID:string];
+    [resultViewController getInfoForPersonID:string withImage:image];
     [self.navigationController pushViewController:resultViewController animated:YES];
 }
 

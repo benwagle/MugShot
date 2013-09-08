@@ -113,20 +113,24 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Is this?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvy-R0-3eX">
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Is this" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvy-R0-3eX">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="RFj-BE-Mha"/>
+                                    <constraint firstAttribute="width" constant="280" id="SGR-qI-Ew9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEc-lj-Jrb">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="Q4c-hG-IMx"/>
+                                    <constraint firstAttribute="width" constant="128" id="I9v-HZ-VBh"/>
                                     <constraint firstAttribute="height" constant="128" id="gmM-MG-eB0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="164" translatesAutoresizingMaskIntoConstraints="NO" id="anV-PZ-WWO">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="3EZ-Ll-r3i"/>
+                                    <constraint firstAttribute="width" constant="164" id="IR6-Dr-g3s"/>
                                     <constraint firstAttribute="height" constant="108" id="chC-zj-7CH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
@@ -135,8 +139,8 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-C0-Mtd">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Py4-vV-aJD"/>
                                     <constraint firstAttribute="width" constant="141" id="f0n-HW-JGj"/>
-                                    <constraint firstAttribute="height" constant="128" id="hlW-Yw-jrx"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BI-2V-QtA">
@@ -174,26 +178,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IR3-x4-umE" firstAttribute="top" secondItem="0BI-2V-QtA" secondAttribute="top" type="default" id="2Xr-ZQ-W64"/>
                             <constraint firstItem="IR3-x4-umE" firstAttribute="trailing" secondItem="Zvn-kg-dbL" secondAttribute="trailing" type="default" id="3AI-Ug-XWA"/>
-                            <constraint firstAttribute="bottom" secondItem="anV-PZ-WWO" secondAttribute="bottom" constant="109" id="5Pz-sw-fro"/>
-                            <constraint firstItem="NEc-lj-Jrb" firstAttribute="leading" secondItem="Zvn-kg-dbL" secondAttribute="leading" constant="10" id="7a6-gq-80D"/>
-                            <constraint firstItem="Nvy-R0-3eX" firstAttribute="top" secondItem="Zvn-kg-dbL" secondAttribute="top" type="default" id="GDj-PQ-QVI"/>
                             <constraint firstItem="0BI-2V-QtA" firstAttribute="leading" secondItem="Zvn-kg-dbL" secondAttribute="leading" type="default" id="Gie-pt-rY1"/>
-                            <constraint firstItem="Nvy-R0-3eX" firstAttribute="leading" secondItem="Zvn-kg-dbL" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="H2S-co-yrv"/>
-                            <constraint firstItem="LRe-C0-Mtd" firstAttribute="centerX" secondItem="Nvy-R0-3eX" secondAttribute="centerX" type="default" id="MdQ-LA-B9D"/>
-                            <constraint firstItem="LRe-C0-Mtd" firstAttribute="top" secondItem="Nvy-R0-3eX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PZg-rj-Q6I"/>
-                            <constraint firstAttribute="trailing" secondItem="Nvy-R0-3eX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SLR-r2-SMd"/>
+                            <constraint firstItem="anV-PZ-WWO" firstAttribute="top" secondItem="Zvn-kg-dbL" secondAttribute="top" constant="208" id="LT0-zm-aXg"/>
                             <constraint firstItem="0BI-2V-QtA" firstAttribute="bottom" secondItem="Zvn-kg-dbL" secondAttribute="bottom" type="default" id="VPH-qT-Zvx"/>
                             <constraint firstItem="IR3-x4-umE" firstAttribute="bottom" secondItem="Zvn-kg-dbL" secondAttribute="bottom" type="default" id="XEc-su-IhY"/>
                             <constraint firstItem="anV-PZ-WWO" firstAttribute="leading" secondItem="NEc-lj-Jrb" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YUB-cj-kmW"/>
-                            <constraint firstItem="IR3-x4-umE" firstAttribute="top" secondItem="0BI-2V-QtA" secondAttribute="top" type="default" id="eq8-uq-dNX"/>
-                            <constraint firstAttribute="bottom" secondItem="NEc-lj-Jrb" secondAttribute="bottom" constant="100" id="jdf-kW-oEU"/>
+                            <constraint firstItem="NEc-lj-Jrb" firstAttribute="top" secondItem="Zvn-kg-dbL" secondAttribute="top" constant="197" id="ZnQ-Wj-DKg"/>
+                            <constraint firstItem="NEc-lj-Jrb" firstAttribute="leading" secondItem="Zvn-kg-dbL" secondAttribute="leading" constant="10" id="aQS-S7-T4r"/>
+                            <constraint firstItem="Nvy-R0-3eX" firstAttribute="centerY" secondItem="LRe-C0-Mtd" secondAttribute="centerY" type="default" id="lX2-J5-XmQ"/>
+                            <constraint firstItem="LRe-C0-Mtd" firstAttribute="trailing" secondItem="anV-PZ-WWO" secondAttribute="trailing" type="default" id="mFt-XU-PDN"/>
+                            <constraint firstItem="Nvy-R0-3eX" firstAttribute="centerX" secondItem="0BI-2V-QtA" secondAttribute="centerX" type="default" id="u27-IF-eQE"/>
+                            <constraint firstItem="LRe-C0-Mtd" firstAttribute="top" secondItem="Zvn-kg-dbL" secondAttribute="top" constant="50" id="umz-uB-kYq"/>
                             <constraint firstItem="IR3-x4-umE" firstAttribute="leading" secondItem="0BI-2V-QtA" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ynH-mj-DGh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="NEc-lj-Jrb" id="wWN-Uk-mZm"/>
                         <outlet property="name" destination="anV-PZ-WWO" id="4sP-6h-f43"/>
+                        <outlet property="testImageView" destination="LRe-C0-Mtd" id="dIs-uM-HTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5JH-Cp-enQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -258,6 +262,36 @@
         <image name="Dropbox.png" width="82" height="81"/>
         <image name="MikeAndBen.jpg" width="1080" height="720"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PreparingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreparingViewController.h"/>
+        </class>
+        <class className="ResultViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="action" name="wrongPerson:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="testImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SourceViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SourceViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pickImageFromPhotos:"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

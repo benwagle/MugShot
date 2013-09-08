@@ -11,11 +11,13 @@
 @interface ResultViewController : UIViewController{
     IBOutlet UILabel *name;
     IBOutlet UIImageView *imageView;
+    IBOutlet UIImageView *testImageView;
     
     NSString *userID;
+    UIImage *testImage;
 }
 
--(void)getInfoForPersonID:(NSString*)string;
+-(void)getInfoForPersonID:(NSString*)string withImage:(UIImage*)image;
 -(IBAction)goBack:(id)sender;
 -(IBAction)wrongPerson:(id)sender;
 
