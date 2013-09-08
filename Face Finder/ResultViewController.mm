@@ -74,6 +74,7 @@
 
 -(IBAction)goBack:(id)sender{
     NSArray *childVC = self.navigationController.childViewControllers;
+    [[CustomFaceRecognizer sharedRecognizer] clearIgnore];
     NSLog(@"%@",childVC);
     [self.navigationController popToViewController:[childVC objectAtIndex:1] animated:YES];
 }

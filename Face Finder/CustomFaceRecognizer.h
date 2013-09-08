@@ -33,6 +33,7 @@
 -(void)markImageIDFinished:(NSString*)imageID;
 - (BOOL)existImageID:(NSString*)imageID;
 -(void)removeID:(int)string;
+-(void)clearIgnore;
 
 
 @end

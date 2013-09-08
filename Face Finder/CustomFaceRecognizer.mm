@@ -8,6 +8,7 @@
 
 #import "CustomFaceRecognizer.h"
 #import "OpenCVData.h"
+#import "ImageParser.h"
 
 @implementation CustomFaceRecognizer
 
@@ -304,6 +305,13 @@
 -(void)removeID:(int )string{
     [ignoreID addObject:[NSNumber numberWithInt: string]];
     
+}
+
+-(void)clearIgnore
+{
+  [ignoreID removeAllObjects];
+  [self trainModel];
+
 }
 
 @end
