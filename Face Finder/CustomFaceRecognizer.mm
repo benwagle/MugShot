@@ -26,7 +26,7 @@
     self = [super init];
     if (self) {
         [self loadDatabase];
-        
+        needsRetraining  = YES;
         ignoreID = [[NSMutableArray alloc] init];
     }
     
@@ -111,6 +111,10 @@
 
 - (BOOL)trainModel
 {
+    
+    if(!needsRetraining) {
+        return YES;
+    }
     std::vector<cv::Mat> images;
     std::vector<int> labels;
     
@@ -157,6 +161,7 @@
     
     if (images.size() > 0 && labels.size() > 0) {
         _model->train(images, labels);
+        needsRetraining = NO;
         return YES;
     }
     else {
@@ -192,6 +197,8 @@
     }
     
     sqlite3_finalize(statement);
+    
+    needsRetraining = YES;
 }
 
 - (cv::Mat)pullStandardizedFace:(cv::Rect)face fromImage:(cv::Mat&)image
@@ -304,13 +311,15 @@
 
 -(void)removeID:(int )string{
     [ignoreID addObject:[NSNumber numberWithInt: string]];
+    needsRetraining = YES;
     
 }
 
 -(void)clearIgnore
 {
   [ignoreID removeAllObjects];
-  [self trainModel];
+    needsRetraining = YES;
+ // [self trainModel];
 
 }
 

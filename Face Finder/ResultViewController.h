@@ -15,11 +15,17 @@
     
     NSString *userID;
     UIImage *testImage;
+    
+    NSString *profileLink;
+    UIImage *largeImage;
+    cv::Rect face;
 }
 
--(void)getInfoForPersonID:(NSString*)string withImage:(UIImage*)image;
+-(void)getInfoForPersonID:(NSString*)string withImage:(UIImage *)image withFace:(cv::Rect)rect;
 -(IBAction)goBack:(id)sender;
 -(IBAction)wrongPerson:(id)sender;
+-(IBAction)correctPerson:(id)sender;
+-(UIImage*)cropImage:(UIImage*)large forRect:(CGRect)r;
 
 
 @end

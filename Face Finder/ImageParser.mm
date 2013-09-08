@@ -60,7 +60,7 @@
  //   NSLog(@"Name:%@",[grabber getNameForID:@"698952030"]);
     
     
-    //[faceRecognizer trainModel];
+    [faceRecognizer trainModel];
  //   NSLog(@"End!");
     
    // UIImage *im2 = [UIImage imageNamed:@"Mike1.jpg"];
@@ -71,11 +71,14 @@
     NSArray *array = [FaceDetector CGRectFromImage:image];
     
     for (int x=0; x<[array count]; x++) {
+        if(x > 0){
+            break;
+        }
         cv::Rect face = [OpenCVData CGRectToFace:((CIFaceFeature*)array[x]).bounds];
       //  int faceID = [[[faceRecognizer recognizeFace:face inImage:image2] objectForKey:@"personName"] integerValue];
         NSDictionary *result = [faceRecognizer recognizeFace:face inImage:image2];
         NSLog(@"%@", result);
-        [delegate foundPersonID:[result objectForKey:@"personName"] withImage:[self cropImage:image forRect:((CIFaceFeature*)array[x]).bounds]];
+        [delegate foundPersonID:[result objectForKey:@"personName"] withImage:image withFace:face];
     }
 
     //  NSLog(@"%@",[faceRecognizer getAllPeople]);
@@ -162,17 +165,10 @@
 -(void)removeID:(NSString*)string{
     
     [[CustomFaceRecognizer sharedRecognizer] removeID:[[names objectForKey:string] intValue]];
-    [faceRecognizer trainModel];
     
 }
 
--(UIImage*)cropImage:(UIImage*)large forRect:(CGRect)rect{
-    CGImageRef imageRef = CGImageCreateWithImageInRect([large CGImage], rect);
-    UIImage *small = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    
-    return small;
-}
+
 
 
 

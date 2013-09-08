@@ -57,7 +57,9 @@
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (FBSession.activeSession.isOpen && appeared) {
         NSLog(@"WORKED!!");
-
+        parser = [ImageParser sharedParser];
+        [parser setDelegate:self];
+        [parser startWithImage:setImage];
     } else {
        
     }
@@ -84,10 +86,14 @@
     setImage = image;
 }
 
--(void)foundPersonID:(NSString*)string withImage:(UIImage *)image{
+-(void)foundPersonID:(NSString*)string withImage:(UIImage*)image withFace:(cv::Rect)rect{
     ResultViewController *resultViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"result"];
-    [resultViewController getInfoForPersonID:string withImage:image];
+    [resultViewController getInfoForPersonID:string withImage:image withFace:rect];
     [self.navigationController pushViewController:resultViewController animated:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    appeared = NO;
 }
 
 

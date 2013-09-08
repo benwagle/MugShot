@@ -17,6 +17,8 @@
     
     NSMutableArray *ignoreID;
     
+    BOOL needsRetraining;
+    
 }
 + (CustomFaceRecognizer *)sharedRecognizer;
 

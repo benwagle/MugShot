@@ -16,7 +16,7 @@
 @required
 -(void)addImageToDatabase:(UIImage*)image forName:(NSString*)name;
 -(void)showImage:(UIImage*)image;
--(void)foundPersonID:(NSString*)string withImage:(UIImage*)image;
+-(void)foundPersonID:(NSString*)string withImage:(UIImage*)image withFace:(cv::Rect)rect;
 
 
 
@@ -41,7 +41,6 @@
 -(void)startWithImage:(UIImage*)image;
 + (ImageParser *)sharedParser;
 -(void)removeID:(NSString*)string;
--(UIImage*)cropImage:(UIImage*)large forRect:(CGRect)rect;
 
 
 @property(nonatomic, strong) id<ImageParserDelegate> delegate;
