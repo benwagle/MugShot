@@ -27,6 +27,12 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    testImageView.image = testImage;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,8 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)getInfoForPersonID:(NSString*)string{
+-(void)getInfoForPersonID:(NSString*)string withImage:(UIImage *)image{
     userID = string;
+    testImage = image;
     
     FBRequestConnection *requestConnection = [[FBRequestConnection alloc] init];
     [requestConnection addRequest:[FBRequest requestForGraphPath:string] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {

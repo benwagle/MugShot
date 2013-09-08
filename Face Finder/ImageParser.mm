@@ -51,7 +51,7 @@
 }
 
 -(void)startWithImage:(UIImage*)image{
-   //[grabber grabAllImages];
+  // [grabber grabAllImages];
     //return;
  /*   NSLog(@"START!");
     UIImage *image = [UIImage imageNamed:@"MikeAndBen.jpg"];
@@ -75,7 +75,7 @@
       //  int faceID = [[[faceRecognizer recognizeFace:face inImage:image2] objectForKey:@"personName"] integerValue];
         NSDictionary *result = [faceRecognizer recognizeFace:face inImage:image2];
         NSLog(@"%@", result);
-        [delegate foundPersonID:[result objectForKey:@"personName"]];
+        [delegate foundPersonID:[result objectForKey:@"personName"] withImage:[self cropImage:image forRect:((CIFaceFeature*)array[x]).bounds]];
     }
 
     //  NSLog(@"%@",[faceRecognizer getAllPeople]);
@@ -164,6 +164,14 @@
     [[CustomFaceRecognizer sharedRecognizer] removeID:[[names objectForKey:string] intValue]];
     [faceRecognizer trainModel];
     
+}
+
+-(UIImage*)cropImage:(UIImage*)large forRect:(CGRect)rect{
+    CGImageRef imageRef = CGImageCreateWithImageInRect([large CGImage], rect);
+    UIImage *small = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return small;
 }
 
 
