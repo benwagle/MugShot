@@ -35,6 +35,7 @@
     [[CustomFaceRecognizer sharedRecognizer] trainModel];
     NSLog(@"End!");
     SourceViewController *sourceViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"source"];
+    [self.navigationController pushViewController:sourceViewController animated:YES];
 }
 
 @end
