@@ -7,6 +7,8 @@
 //
 
 #import "ResultViewController.h"
+#import "ImageParser.h"
+
 #import <FacebookSDK/FacebookSDK.h>
 #import <AFNetworking/AFNetworking.h>
 
@@ -68,5 +70,17 @@
     }];
     [requestConnection start];
 }
+
+-(IBAction)goBack:(id)sender{
+    NSArray *childVC = self.navigationController.childViewControllers;
+    NSLog(@"%@",childVC);
+    [self.navigationController popToViewController:[childVC objectAtIndex:1] animated:YES];
+}
+-(IBAction)wrongPerson:(id)sender{
+ //   [[ImageParser sharedParser]]
+}
+
+
+
 
 @end

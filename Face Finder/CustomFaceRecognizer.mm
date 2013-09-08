@@ -25,6 +25,8 @@
     self = [super init];
     if (self) {
         [self loadDatabase];
+        
+        ignoreID = [[NSMutableArray alloc] init];
     }
     
     return self;

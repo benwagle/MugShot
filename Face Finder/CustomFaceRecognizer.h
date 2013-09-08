@@ -15,6 +15,8 @@
     sqlite3 *_db;
     cv::Ptr<cv::FaceRecognizer> _model;
     
+    NSMutableArray *ignoreID;
+    
 }
 + (id)sharedRecognizer;
 

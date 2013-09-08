@@ -13,6 +13,16 @@
 @implementation ImageParser
 @synthesize delegate;
 
++ (id)sharedParser{
+    static ImageParser *sharedParser = nil;
+    @synchronized(self) {
+        if (sharedParser == nil)
+            sharedParser = [[self alloc] init];
+    }
+    return sharedParser;
+}
+
+
 - (id)init
 {
     self = [super init];

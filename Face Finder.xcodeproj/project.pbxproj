@@ -32,7 +32,7 @@
 		961F7F9917DAA491007DA527 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 961F7F9817DAA491007DA527 /* haarcascade_frontalface_alt2.xml */; };
 		963604B417DC354F0069208B /* PreparingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 963604B317DC354E0069208B /* PreparingViewController.mm */; };
 		964A5DAD17DAAB2500F6F6B1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */; };
-		96CE154117DC2AB60065425D /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CE154017DC2AB60065425D /* ResultViewController.m */; };
+		96CE154117DC2AB60065425D /* ResultViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96CE154017DC2AB60065425D /* ResultViewController.mm */; };
 		96DC690817DC067000C7B704 /* Mike9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DC690717DC067000C7B704 /* Mike9.jpg */; };
 		96DC690A17DC091E00C7B704 /* Ben5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DC690917DC091E00C7B704 /* Ben5.jpg */; };
 		96DC690C17DC160500C7B704 /* Ben4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DC690B17DC160500C7B704 /* Ben4.jpg */; };
@@ -89,7 +89,7 @@
 		963604B317DC354E0069208B /* PreparingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PreparingViewController.mm; sourceTree = "<group>"; };
 		964A5DAC17DAAB2500F6F6B1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		96CE153F17DC2AB60065425D /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
-		96CE154017DC2AB60065425D /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		96CE154017DC2AB60065425D /* ResultViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultViewController.mm; sourceTree = "<group>"; };
 		96DC690717DC067000C7B704 /* Mike9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mike9.jpg; sourceTree = "<group>"; };
 		96DC690917DC091E00C7B704 /* Ben5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ben5.jpg; sourceTree = "<group>"; };
 		96DC690B17DC160500C7B704 /* Ben4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ben4.jpg; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				96DC691517DC1E7600C7B704 /* SourceViewController.h */,
 				96DC691617DC1E7600C7B704 /* SourceViewController.mm */,
 				96CE153F17DC2AB60065425D /* ResultViewController.h */,
-				96CE154017DC2AB60065425D /* ResultViewController.m */,
+				96CE154017DC2AB60065425D /* ResultViewController.mm */,
 				961F7F6917DA9AE2007DA527 /* OpenCVData.h */,
 				961F7F6A17DA9AE2007DA527 /* OpenCVData.mm */,
 				961F7F6C17DA9B0C007DA527 /* CustomFaceRecognizer.h */,
@@ -359,7 +359,7 @@
 				96FF3D8017DB1029000CC676 /* ImageData.mm in Sources */,
 				96FF3D8317DB1A6A000CC676 /* ImageParser.mm in Sources */,
 				96DC691717DC1E7600C7B704 /* SourceViewController.mm in Sources */,
-				96CE154117DC2AB60065425D /* ResultViewController.m in Sources */,
+				96CE154117DC2AB60065425D /* ResultViewController.mm in Sources */,
 				963604B417DC354F0069208B /* PreparingViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

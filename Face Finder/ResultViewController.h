@@ -14,6 +14,8 @@
 }
 
 -(void)getInfoForPersonID:(NSString*)string;
+-(IBAction)goBack:(id)sender;
+-(IBAction)wrongPerson:(id)sender;
 
 
 @end

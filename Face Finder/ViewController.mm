@@ -48,7 +48,7 @@
     
     
     if(FBSession.activeSession.isOpen){
-        parser = [[ImageParser alloc] init];
+        parser = [ImageParser sharedParser];
         [parser setDelegate:self];
         [parser startWithImage:setImage];
     }
