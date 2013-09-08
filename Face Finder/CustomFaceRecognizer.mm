@@ -11,7 +11,7 @@
 
 @implementation CustomFaceRecognizer
 
-+ (id)sharedRecognizer {
++ (CustomFaceRecognizer *)sharedRecognizer {
     static CustomFaceRecognizer *sharedRecognizer = nil;
     @synchronized(self) {
         if (sharedRecognizer == nil)
@@ -113,12 +113,29 @@
     std::vector<cv::Mat> images;
     std::vector<int> labels;
     
+    
     const char* selectSQL = "SELECT person_id, image FROM images";
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(_db, selectSQL, -1, &statement, nil) == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             int personID = sqlite3_column_int(statement, 0);
             
+            BOOL skip= NO;
+            
+            for(int x=0; x<ignoreID.count; x++)
+                {
+                    if(personID==[ignoreID[x] integerValue])
+                    {
+                        skip= YES;
+                        break;
+                        
+                    }
+                    
+                }
+                
+            
+            if(!skip)
+            {
             // First pull out the image into NSData
             int imageSize = sqlite3_column_bytes(statement, 1);
             NSData *imageData = [NSData dataWithBytes:sqlite3_column_blob(statement, 1) length:imageSize];
@@ -131,6 +148,7 @@
             // Put this image into the model
             images.push_back(faceData);
             labels.push_back(personID);
+            }
         }
     }
     
@@ -283,8 +301,9 @@
     }
 }
 
--(void)removeID:(NSString *)string{
-    [ignoreID addObject:string];
+-(void)removeID:(int )string{
+    [ignoreID addObject:[NSNumber numberWithInt: string]];
+    
 }
 
 @end

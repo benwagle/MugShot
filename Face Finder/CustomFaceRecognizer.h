@@ -18,7 +18,7 @@
     NSMutableArray *ignoreID;
     
 }
-+ (id)sharedRecognizer;
++ (CustomFaceRecognizer *)sharedRecognizer;
 
 - (id)initWithEigenFaceRecognizer;
 - (id)initWithFisherFaceRecognizer;
@@ -32,7 +32,7 @@
 - (NSDictionary *)recognizeFace:(cv::Rect)face inImage:(cv::Mat&)image;
 -(void)markImageIDFinished:(NSString*)imageID;
 - (BOOL)existImageID:(NSString*)imageID;
--(void)removeID:(NSString*)string;
+-(void)removeID:(int)string;
 
 
 @end

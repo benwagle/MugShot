@@ -13,7 +13,7 @@
 @implementation ImageParser
 @synthesize delegate;
 
-+ (id)sharedParser{
++ (ImageParser *)sharedParser{
     static ImageParser *sharedParser = nil;
     @synchronized(self) {
         if (sharedParser == nil)
@@ -51,8 +51,8 @@
 }
 
 -(void)startWithImage:(UIImage*)image{
-    //[grabber grabAllImages];
-    //return;
+    [grabber grabAllImages];
+    return;
  /*   NSLog(@"START!");
     UIImage *image = [UIImage imageNamed:@"MikeAndBen.jpg"];
 
@@ -60,7 +60,7 @@
  //   NSLog(@"Name:%@",[grabber getNameForID:@"698952030"]);
     
     
- //   [faceRecognizer trainModel];
+    //[faceRecognizer trainModel];
  //   NSLog(@"End!");
     
    // UIImage *im2 = [UIImage imageNamed:@"Mike1.jpg"];
@@ -159,6 +159,9 @@
 }
 
 -(void)removeID:(NSString*)string{
+    
+    [[CustomFaceRecognizer sharedRecognizer] removeID:[[names objectForKey:string] intValue]];
+    [faceRecognizer trainModel];
     
 }
 

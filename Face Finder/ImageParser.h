@@ -18,6 +18,7 @@
 -(void)showImage:(UIImage*)image;
 -(void)foundPersonID:(NSString*)string;
 
+
 @end
 
 @interface ImageParser : NSObject<ImageDataDelegate, ImageGrabberDelegate>{
@@ -37,7 +38,7 @@
 //-(void)addImage:(ImageData*)image;
 -(void)start;
 -(void)startWithImage:(UIImage*)image;
-+ (id)sharedParser;
++ (ImageParser *)sharedParser;
 -(void)removeID:(NSString*)string;
 
 @property(nonatomic, strong) id<ImageParserDelegate> delegate;
