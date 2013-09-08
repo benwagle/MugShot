@@ -9,6 +9,7 @@
 #import "PreparingViewController.h"
 #import "CustomFaceRecognizer.h"
 #import "SourceViewController.h"
+#import "AppDelegate.h"
 
 @interface PreparingViewController ()
 
@@ -19,8 +20,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(sessionStateChanged:)
+     name:FBSessionStateChangedNotification
+     object:nil];
+    
+    
 	// Do any additional setup after loading the view.
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate openSessionWithAllowLoginUI:YES];
+    
+    
 }
+
+
+- (void)sessionStateChanged:(NSNotification*)notification {
+    if (FBSession.activeSession.isOpen) {
+
+    } else {
+        
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

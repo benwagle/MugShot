@@ -23,17 +23,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"AHH!");
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(sessionStateChanged:)
-     name:FBSessionStateChangedNotification
-     object:nil];
+  //  NSLog(@"AHH!");
+
     
 	// Do any additional setup after loading the view, typically from a nib.
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate openSessionWithAllowLoginUI:YES];
+
     
 }
 
@@ -51,17 +46,6 @@
         parser = [ImageParser sharedParser];
         [parser setDelegate:self];
         [parser startWithImage:setImage];
-    }
-}
-
-- (void)sessionStateChanged:(NSNotification*)notification {
-    if (FBSession.activeSession.isOpen && appeared) {
-        NSLog(@"WORKED!!");
-        parser = [ImageParser sharedParser];
-        [parser setDelegate:self];
-        [parser startWithImage:setImage];
-    } else {
-       
     }
 }
 
