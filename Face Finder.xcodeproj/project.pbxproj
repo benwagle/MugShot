@@ -40,6 +40,7 @@
 		96DC691717DC1E7600C7B704 /* SourceViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96DC691617DC1E7600C7B704 /* SourceViewController.mm */; };
 		96E3BD6617DAB2A1001E02EE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E3BD6517DAB2A1001E02EE /* libz.dylib */; };
 		96E3BD6917DAB3C1001E02EE /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		96EF44AF17DC79B000AB46CC /* SyncViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96EF44AE17DC79B000AB46CC /* SyncViewController.mm */; };
 		96FF3D7D17DAEA35000CC676 /* ImageGrabber.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7C17DAEA35000CC676 /* ImageGrabber.mm */; };
 		96FF3D8017DB1029000CC676 /* ImageData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D7F17DB1028000CC676 /* ImageData.mm */; };
 		96FF3D8317DB1A6A000CC676 /* ImageParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96FF3D8217DB1A6A000CC676 /* ImageParser.mm */; };
@@ -97,6 +98,8 @@
 		96E3BD6517DAB2A1001E02EE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		96E3BD6717DAB3C1001E02EE /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
 		96E3BD6817DAB3C1001E02EE /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		96EF44AD17DC79B000AB46CC /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
+		96EF44AE17DC79B000AB46CC /* SyncViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SyncViewController.mm; sourceTree = "<group>"; };
 		96FF3D7B17DAEA35000CC676 /* ImageGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGrabber.h; sourceTree = "<group>"; };
 		96FF3D7C17DAEA35000CC676 /* ImageGrabber.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageGrabber.mm; sourceTree = "<group>"; };
 		96FF3D7E17DB1028000CC676 /* ImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageData.h; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				961F7F5A17DA976B007DA527 /* ViewController.mm */,
 				96DC691517DC1E7600C7B704 /* SourceViewController.h */,
 				96DC691617DC1E7600C7B704 /* SourceViewController.mm */,
+				96EF44AD17DC79B000AB46CC /* SyncViewController.h */,
+				96EF44AE17DC79B000AB46CC /* SyncViewController.mm */,
 				96CE153F17DC2AB60065425D /* ResultViewController.h */,
 				96CE154017DC2AB60065425D /* ResultViewController.mm */,
 				961F7F6917DA9AE2007DA527 /* OpenCVData.h */,
@@ -353,6 +358,7 @@
 				96DC691717DC1E7600C7B704 /* SourceViewController.mm in Sources */,
 				96CE154117DC2AB60065425D /* ResultViewController.mm in Sources */,
 				963604B417DC354F0069208B /* PreparingViewController.mm in Sources */,
+				96EF44AF17DC79B000AB46CC /* SyncViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

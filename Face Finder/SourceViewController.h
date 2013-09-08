@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
+
 
 @interface SourceViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 -(IBAction)pickImageFromPhotos:(id)sender;
+-(IBAction)facebookSync:(id)sender;
 
 @end

@@ -14,10 +14,9 @@
 
 @protocol ImageParserDelegate
 @required
--(void)addImageToDatabase:(UIImage*)image forName:(NSString*)name;
 -(void)showImage:(UIImage*)image;
 -(void)foundPersonID:(NSString*)string withImage:(UIImage*)image withFace:(cv::Rect)rect;
-
+-(void)finished;
 
 
 @end
@@ -41,6 +40,8 @@
 -(void)startWithImage:(UIImage*)image;
 + (ImageParser *)sharedParser;
 -(void)removeID:(NSString*)string;
+-(void)getAllImages;
+-(void)addPerson:(NSString*)tagID; 
 
 
 @property(nonatomic, strong) id<ImageParserDelegate> delegate;

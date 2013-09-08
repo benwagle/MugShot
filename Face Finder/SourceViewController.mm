@@ -7,7 +7,7 @@
 //
 
 #import "SourceViewController.h"
-#import "ViewController.h"
+#import "SyncViewController.h"
 
 @interface SourceViewController ()
 
@@ -42,6 +42,11 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [self.navigationController pushViewController:viewController
                                          animated:YES];
 }
-                                                 
-                                                 
+
+-(IBAction)facebookSync:(id)sender{
+    SyncViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"sync"];
+    [self.navigationController pushViewController:viewController
+                                         animated:YES];
+}
+
 @end

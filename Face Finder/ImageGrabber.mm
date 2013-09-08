@@ -47,6 +47,7 @@
         [requestConnection addRequest:[FBRequest requestForGraphPath:[NSString stringWithFormat:@"%@/photos",[dict objectForKey:@"id"]]] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
             //NSLog(@"Stuff:%@",result);
             [self parseJSON:result];
+            [delegate checkForMore];
         }];
         [requestConnection start];
     }

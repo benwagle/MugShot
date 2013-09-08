@@ -13,6 +13,7 @@
 @required
 -(BOOL)recievedImageData:(NSDictionary*)dict;
 -(void)checkForMore;
+-(void)finishedImporting;
 @end
 
 @interface ImageGrabber : NSObject{

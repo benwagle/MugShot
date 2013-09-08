@@ -51,8 +51,7 @@
 }
 
 -(void)startWithImage:(UIImage*)image{
-  // [grabber grabAllImages];
-    //return;
+
  /*   NSLog(@"START!");
     UIImage *image = [UIImage imageNamed:@"MikeAndBen.jpg"];
 
@@ -87,9 +86,16 @@
     // }*/
 }
 
+-(void)getAllImages{
+     [grabber grabAllImages];
+
+
+}
+
+
 -(void)checkForMore{
     if([imageSet count] == 0){
-     //   [grabber nextPerson];
+        [delegate finished];
     }
 }
 -(void)recievedData:(ImageData *)image{
@@ -112,14 +118,19 @@
     [faceRecognizer learnFace:faces[0] ofPersonID:x fromImage:image];
     return YES;
 }
--(void)addImageToDatabase:(UIImage*)image forID:(NSString*)tagID forFace:(cv::Rect)face{
 
+-(void)addPerson:(NSString*)tagID{
     if ([names objectForKey:tagID] == nil) {
         int dataID = [faceRecognizer newPersonWithName:tagID];
         [names setObject:[NSNumber numberWithInt:dataID] forKey:tagID];
     }
+}
+-(void)addImageToDatabase:(UIImage*)image forID:(NSString*)tagID forFace:(cv::Rect)face{
     
-    [delegate addImageToDatabase:image forName:@""];
+    [self addPerson:tagID];
+
+    
+    [delegate showImage:image];
 
 
     cv::Mat cvIm = [image CVMat];
@@ -151,7 +162,7 @@
 -(void)showImage:(UIImage*)image{
     failed++;
     NSLog(@"Passed:%i Failed:%i",passed,failed);
-    [delegate addImageToDatabase:image forName:@""];
+    [delegate showImage:image];
 
 }
 
