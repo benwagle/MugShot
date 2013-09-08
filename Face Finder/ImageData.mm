@@ -35,6 +35,7 @@ static FaceDetector *faceDetector;
     self = [super init];
     
     tags = [[NSMutableArray alloc] init];
+    
     self.imageID = [JSON objectForKey:@"id"];
     
     [self getImage:[JSON objectForKey:@"source"]];
@@ -46,7 +47,9 @@ static FaceDetector *faceDetector;
         faceDetector = [[FaceDetector alloc] init];
     }
     for (NSDictionary *dict in [[JSON objectForKey:@"tags"] objectForKey:@"data"]) {
-        [self addTagAtX:[[dict objectForKey:@"x"] integerValue] y:[[dict objectForKey:@"y"] integerValue] userID:[[dict objectForKey:@"id"] integerValue]];
+        NSLog(@"%@",dict);
+
+        [self addTagAtX:[[dict objectForKey:@"x"] integerValue] y:[[dict objectForKey:@"y"] integerValue] userID:[dict objectForKey:@"id"]];
     }
     
     return self;
@@ -64,7 +67,7 @@ static FaceDetector *faceDetector;
 
       //  [self addTagAtX:[[dict objectForKey:@"x"] integerValue] y:[[dict objectForKey:@"y"] integerValue] userID:[[dict objectForKey:@"id"] integerValue]];
     }
-    [self addTagAtX:0 y:0 userID:552452699];
+  //  [self addTagAtX:0 y:0 userID:552452699];
     
     if(faceDetector == nil)
     {
@@ -79,7 +82,7 @@ static FaceDetector *faceDetector;
 
 -(void)getImage:(NSString*)imagePath{
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imagePath]];
-    
+    NSLog(@"GET IT!");
     
     AFImageRequestOperation *operation = [AFImageRequestOperation imageRequestOperationWithRequest:request success:^(UIImage *i){
         image = i;
@@ -88,7 +91,10 @@ static FaceDetector *faceDetector;
     [operation start];
 }
 
--(void)addTagAtX:(NSInteger)x y:(NSInteger)y userID:(NSInteger)uid{
+-(void)addTagAtX:(NSInteger)x y:(NSInteger)y userID:(NSString*)uid{
+    if(uid == nil){
+        return;
+    }
     TagInfo *tag = [[TagInfo alloc] init];
     tag.location = CGPointMake(x, y);
     tag.tagID = uid;
@@ -102,10 +108,11 @@ static FaceDetector *faceDetector;
     NSArray *faces = [FaceDetector CGRectFromImage:image];
  //   NSLog(@"Found:%li",faces.size());
    // NSLog(@"Found:%i faces",[faces count]);
-    
+    [delegate showImage:image];
+
     if([faces count] == 0){
        // NSLog(@"NONE!");
-        [delegate showImage:image];
+    //    [delegate showImage:image];
         [delegate markImageAsFinishedforImageID:self.imageID];
         return;
     }

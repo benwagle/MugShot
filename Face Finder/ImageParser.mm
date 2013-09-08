@@ -8,7 +8,7 @@
 
 #import "ImageParser.h"
 #import "UIImage+OpenCV.h"
-
+#import "OpenCVData.h"
 
 @implementation ImageParser
 @synthesize delegate;
@@ -41,16 +41,40 @@
 }
 
 -(void)start{
-    [grabber grabAllImages];
+    //[grabber grabAllImages];
+    //return;
  /*   NSLog(@"START!");
     UIImage *image = [UIImage imageNamed:@"MikeAndBen.jpg"];
 
     ImageData *imageData = [[ImageData alloc] initWithJSON:@{@"tags":@{@"data": @{@"id": @552452699, @"x":@0, @"y":@0}}} andImage:image andDelegate:self];*/
+    NSLog(@"Start!");
+    
+    [faceRecognizer trainModel];
+    NSLog(@"End!");
+    
+    UIImage *im2 = [UIImage imageNamed:@"Mike1.jpg"];
+    cv::Mat image2 = [im2 CVMat];
+    
+    //std::vector<cv::Rect> faces2 = [faceDetector facesFromImage:image2];
+    
+    NSArray *array = [FaceDetector CGRectFromImage:im2];
+    
+    for (int x=0; x<[array count]; x++) {
+        cv::Rect face = [OpenCVData CGRectToFace:((CIFaceFeature*)array[x]).bounds];
+      //  int faceID = [[[faceRecognizer recognizeFace:face inImage:image2] objectForKey:@"personName"] integerValue];
+        NSLog(@"%@",[faceRecognizer recognizeFace:face inImage:image2] );
+        
+    }
+
+    //  NSLog(@"%@",[faceRecognizer getAllPeople]);
+    //  if([faceRecognizer trainModel]){
+    //    NSLog(@"Train successful!");
+    // }*/
 }
 
 -(void)checkForMore{
     if([imageSet count] == 0){
-        [grabber nextPerson];
+     //   [grabber nextPerson];
     }
 }
 -(void)recievedData:(ImageData *)image{
@@ -73,19 +97,20 @@
     [faceRecognizer learnFace:faces[0] ofPersonID:x fromImage:image];
     return YES;
 }
--(void)addImageToDatabase:(UIImage*)image forID:(NSInteger)tagID forFace:(cv::Rect)face{
+-(void)addImageToDatabase:(UIImage*)image forID:(NSString*)tagID forFace:(cv::Rect)face{
 
-    if ([names objectForKey:[NSString stringWithFormat:@"%i",tagID]] == nil) {
-        int dataID = [faceRecognizer newPersonWithName:[NSString stringWithFormat:@"%i",tagID]];
-        [names setObject:[NSNumber numberWithInt:dataID] forKey:[NSString stringWithFormat:@"%i",tagID]];
+    if ([names objectForKey:tagID] == nil) {
+        int dataID = [faceRecognizer newPersonWithName:tagID];
+        [names setObject:[NSNumber numberWithInt:dataID] forKey:tagID];
     }
     
+    [delegate addImageToDatabase:image forName:@""];
 
 
     cv::Mat cvIm = [image CVMat];
    // std::vector<cv::Rect> faces2 = [faceDetector facesFromImage:cvIm];
 
-    [faceRecognizer learnFace:face ofPersonID:[[names objectForKey:[NSString stringWithFormat:@"%i",tagID]] intValue] fromImage:cvIm];
+    [faceRecognizer learnFace:face ofPersonID:[[names objectForKey:tagID] intValue] fromImage:cvIm];
     //int personID = [[names objectForKey:[NSString stringWithFormat:@"%i",tagID]] intValue];
   //  if([self addImage:image forPerson:personID]){
     //    NSLog(@"SHOW!!");
@@ -96,9 +121,8 @@
 }
 
 -(BOOL)recievedImageData:(NSDictionary*)dict{
-
     if([faceRecognizer existImageID:[dict objectForKey:@"id"]]){
-       // NSLog(@"ALREADY EXISTS!");
+        NSLog(@"ALREADY EXISTS!");
         return NO;
     }
     ImageData *imageData = [[ImageData alloc] initWithJSON:dict];

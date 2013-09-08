@@ -14,7 +14,7 @@
 -(NSInteger)getDistanceToPoint:(CGRect)rect;
 
 @property() CGPoint location;
-@property() NSInteger tagID;
+@property() NSString *tagID;
 @property() CGRect faceRect;
 @property() cv::Rect face;
 
@@ -24,7 +24,7 @@
 @protocol ImageDataDelegate
 @required
 -(void)recievedData:(ImageData*)image;
--(void)addImageToDatabase:(UIImage*)image forID:(NSInteger)tagID forFace:(cv::Rect)face;
+-(void)addImageToDatabase:(UIImage*)image forID:(NSString*)tagID forFace:(cv::Rect)face;
 -(void)showImage:(UIImage*)image;
 -(void)markImageAsFinishedforImageID:(NSString*)photoID;
 @end

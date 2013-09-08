@@ -20,6 +20,8 @@
     int personIndex;
     NSMutableArray *friendQueue;
     int peopleProcessing;
+    
+    NSMutableSet *friendNumbers;
 }
 
 -(void)grabAllImages;

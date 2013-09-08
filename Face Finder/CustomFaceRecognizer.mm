@@ -104,11 +104,9 @@
     
     const char* selectSQL = "SELECT person_id, image FROM images";
     sqlite3_stmt *statement;
-    
     if (sqlite3_prepare_v2(_db, selectSQL, -1, &statement, nil) == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             int personID = sqlite3_column_int(statement, 0);
-            
             // First pull out the image into NSData
             int imageSize = sqlite3_column_bytes(statement, 1);
             NSData *imageData = [NSData dataWithBytes:sqlite3_column_blob(statement, 1) length:imageSize];
